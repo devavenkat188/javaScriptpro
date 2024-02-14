@@ -9,3 +9,4 @@ console.log(age);
 console.log(aadharActivate);
 console.log(typeof(mobileNumber));
 console.log(sum);
+console.log(typeof(sum));
