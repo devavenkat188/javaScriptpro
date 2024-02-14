@@ -1,3 +1,3 @@
 let fullName="Devashankar"
 
-console.log(fullName.charAt((Math.floorMath.random()*11)));
+console.log(fullName.charAt(Math.floor(Math.random()*11)));
