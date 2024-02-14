@@ -1,5 +1,6 @@
-let day=6;
+let day="sunday";
 let decision;
-if(day==6){
+if(day==day){
     decision="Holiday";
 }
+console.log(decision);
