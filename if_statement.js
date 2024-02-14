@@ -1,6 +1,5 @@
-let day="sunday";
-let day2="sunday";
+let day=6;
 let decision;
-if(day=== day2){
+if(day==6){
     decision="Holiday";
 }
