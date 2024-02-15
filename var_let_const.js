@@ -1,3 +1,5 @@
+z=20; //Automatically
+    console.log(typeof(z));
 if (true){
     var varVariable="This is true";
 }
@@ -26,6 +28,7 @@ constVar.name = "Shankar";
 console.log(constVar); // we can modify the properties of the class created by using the const variable
 
 /* 
+number 
 The var variable can be re-declare
 This is used only Inside a block
 This is also block scoped variables
