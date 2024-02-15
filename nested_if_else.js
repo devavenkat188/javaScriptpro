@@ -1,4 +1,4 @@
-let totalMarks=40;
+let totalMarks=42;
 let collegeStudent=true;
 let grade;
 
@@ -15,13 +15,16 @@ else if (totalMarks >=60) {
     grade="D grade";
 }
 else {
-    if(collegeStudent) {
-        grade="Re-Appear";
+    if(collegeStudent && totalMarks < 60) {
+        grade="Re-Evaluation";
     }
     else if (totalMarks <= 40) {
-        grade=`Re-Appear ${grade} grade.`
+        grade="Re-Appear F grade."
     }
-    grade="F grade";
+    else {
+        grade="F grade";
+    }
+    
 }
 
 console.log(grade);
