@@ -2,7 +2,7 @@ let totalMarks=96;
 let collegeStudent=true;
 let grade;
 
-if(totalMarks >= 90 && totalMarks <= 90) {
+if(totalMarks >= 90 && totalMarks <= 100) {
     grade="A grade";
 }
 else if (totalMarks >=80) {
