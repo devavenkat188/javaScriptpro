@@ -1,4 +1,4 @@
-let player="scisccors";
+let player="scissors";
 let computer="stone";
 switch(player) {
     case computer:
