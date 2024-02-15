@@ -6,3 +6,4 @@ if (balanceAmount>1000) {
 else {
     message="Minimum Balance Amount Reached. Please Add Amount";
 }
+console.log(message);
