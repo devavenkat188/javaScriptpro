@@ -5,3 +5,4 @@ if(fullName){
 else {
     console.log("please enter your name");
 }
+console.log(fullName.trim().length); // .trim() --> is used to remove the white spacing .
