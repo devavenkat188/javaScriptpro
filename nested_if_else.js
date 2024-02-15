@@ -30,5 +30,5 @@ else {
 console.log(grade);
 
 /*
-Re-Evaluation
+A-grade
  */
