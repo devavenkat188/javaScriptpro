@@ -24,3 +24,10 @@ let letVar = 1;
 constVar.name = "Shankar";
 
 console.log(constVar); // we can modify the properties of the class created by using the const variable
+
+/* 
+The var variable can be re-declare
+This is used only Inside a block
+This is also block scoped variables
+{ name: 'Shankar' }
+*/
