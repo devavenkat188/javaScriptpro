@@ -11,6 +11,7 @@ switch(player) {
         else {
             console.log("computer wins")
         }
+        break;
     default:
         console.log("No Tie");
 }
