@@ -1,18 +1,20 @@
-let bank="ICICI";
-let bank2="ICICI"
-let availableAmount=5000;
-let user="Withdraw";
-let user2="close";
-let display;
-if(bank === bank2){
-    display="Welcome to ICICI Bank";
+let totalMarks=90;
+let grade;
+
+if(totalMarks >= 90 && totalMarks <= 90) {
+    grade="A grade";
 }
-else if (availableAmount > 1000) {
-    display=`Available amount ${availableAmount} Rupees`;
+else if (totalMarks >=80) {
+    grade="B grade";
 }
-else if (user === user2) {
-    display="Please Collect Your Cash";
+else if(totalMarks >=70) {
+    grade="C grade";
+}
+else if (totalMarks >=60) {
+    grade="D grade";
 }
 else {
-    display="Use ICICI bank ATM Card"
+    grade="F grade";
 }
+
+console.log(grade);
