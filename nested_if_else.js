@@ -1,4 +1,4 @@
-let totalMarks=42;
+let totalMarks=96;
 let collegeStudent=true;
 let grade;
 
