@@ -4,7 +4,7 @@ switch(player) {
     case computer:
         console.log("Tie!");
         break;
-    case "scissor":
+    case player:
         if(computer==="paper") {
             console.log("player wins")
         }
