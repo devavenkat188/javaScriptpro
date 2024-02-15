@@ -1,5 +1,5 @@
 let fullName = prompt("Enter your Name");
-if(fullName.length>1){
+if(fullName){
     console.log(fullName ?? "you didn't enter your name");
 }
 else {
