@@ -9,7 +9,7 @@ console.log(add);
 console.log(check);
 
 /*
-8n
-8
+14n
+14
 false
  */
