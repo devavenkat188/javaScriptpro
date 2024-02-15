@@ -1,5 +1,5 @@
-let player="scissor";
-let computer="paper";
+let player="scisccors";
+let computer="stone";
 switch(player) {
     case computer:
         console.log("Tie!");
