@@ -1,10 +1,8 @@
-let j;
-let i=0;
-while(i<6){
-    if(i === 4){
+let text ='';
+ for(let i=0;i<6;i++) {
+    if(i === 3) {
         continue;
     }
-    i++;
-    j = i+j;
-}
-console.log(j);
+    text = text + i;
+ }
+ console.log(text);
