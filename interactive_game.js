@@ -1,12 +1,12 @@
-let playaGame = confrim("Shall we played rock, paper or scissors ?");
+let playaGame = confirm("Shall we played rock, paper or scissors ?");
 if(playaGame) {
     let playerChoice = prompt("please enter rock, paper or scissors");
     if(playerChoice) {
-        let player1 = playerChoice.trim().toLocaleUpperCase();
+        let player1 = playerChoice.trim().toLowerCase();
         if(player1 === "rock" ||
            player1 === "paper" ||
-           player1 === "scissors") {
-
+           player1 === "scissors") 
+           {    
             let computerChoice = Math.floor(Math.random()*3);
             let computer;
             if(computerChoice === 1) {
@@ -36,7 +36,7 @@ if(playaGame) {
                 result = "Computer Wins";
             }
             alert(result);
-            let playAgain = confirm ("play Again?");
+            let playAgain = confirm ("play Again ?");
             playAgain ? location.reload() : alert("Ok, Thanks for Playing.");
 
            } else {
