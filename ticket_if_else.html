@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Details</title>
+    <style>
+        div#maincontent {
+            height: 200px;
+            width: 600px;
+            border: 1px solid #CEE2FA;
+            text-align: left;
+            color: #08438E;
+            font-family: calibri;
+            font-size: 20;
+            padding: 5px;
+        }
+        div#heading {
+            text-decoration: bold;
+            text-align: center;
+            margin-top: 80px;
+            width: 600px;
+            border: 1px solid #CEE2FA;
+            text-align: center;
+            color: #08438E;
+            background-color: #CEE2FA;
+            font-family: calibri;
+            font-size: 20;
+            padding: 5px;
+        }
+        h4 {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div id="heading">
+            <b>Theatre Drama</b>
+        </div>
+        <div id="maincontent">
+            <h4>Your Ticket Details:</h4>
+            <br>
+            <script>
+                // Write the code to display the total price and discounted price of tickets
+                let seatstobeBooked = Math.ceil(Math.random()*10);
+                let costPerTicket = 9;
+                let customer1Dis = 5;
+                let customer2Dis = 7;
+                let customer3Dis = 9;
+                let customer4Dis = 11;
+                let totalCostofyourTicket;
+                if (seatstobeBooked <= 2 ) {
+                    totalCostofyourTicket = seatstobeBooked * costPerTicket;
+                    document.write(`Your Ticket Cost is ${totalCostofyourTicket}`);
+                }
+                else if (seatstobeBooked >= 5){
+                    document.write("Booking is Not Allowed !");
+                }
+                else if (seatstobeBooked > 2 && seatstobeBooked < 5) {
+                    totalCostofyourTicket = seatstobeBooked * costPerTicket;
+                    let customer1 = costPerTicket - (costPerTicket * (customer1Dis/100));
+                    let customer2 = costPerTicket - (costPerTicket * (customer2Dis/100));
+                    let customer3 = costPerTicket - (costPerTicket * (customer3Dis/100));
+                    let customer4 = costPerTicket - (costPerTicket * (customer4Dis/100));
+                    totalCostofyourTicketAfterDiscount = customer1 + customer2 + customer3 + customer4;
+                    /*
+                    document.write(`Ticket for Customer 1 gets 5% discount!, Cost is: $ ${customer1}`),
+                    document.write(`Ticket for Customer 2 gets 7% discount!, Cost is: $ ${customer2}`),
+                    document.write(`Ticket for Customer 3 gets 9% discount!, Cost is: $ ${customer3}`),
+                    document.write(`Ticket for Customer 4 gets 11% discount!, Cost is: $ ${customer4}`),
+                    */
+                    
+                    document.write(`Ticket for Customer 1 gets 5% discount!, Cost is: $ ${customer1} <br>`,
+                    `Ticket for Customer 2 gets 7% discount!, Cost is: $ ${customer2} <br>`,
+                    `Ticket for Customer 3 gets 9% discount!, Cost is: $ ${customer3} <br> `,
+                    `Ticket for Customer 4 gets 11% discount!, Cost is: $ ${customer4} <br>`);
+
+                    document.write(`For 4 tickets, you need to pay: $ ${totalCostofyourTicketAfterDiscount} instead of $ ${totalCostofyourTicket}`);
+                }
+            </script>
+        </div>
+    </center>
+</body>
+</html>
