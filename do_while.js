@@ -1,4 +1,4 @@
-let i = 50;
+let i = 1;
 do {
     console.log(i);
     i++;
