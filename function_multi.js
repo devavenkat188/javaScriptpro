@@ -5,8 +5,8 @@ function multi(a,b){
 console.log(multi(3,4));
 */
 
-let mail = "devavenkat188@gmail.com"
+let mail = "devavenkat188@gmail.com";
 function gmail(mail){
-    return mail.slice(0,mail.indexOf("@"));
+    return (mail);
 }
-console.log(gmail(`${mail}`));
+console.log(mail.slice(0,mail.indexOf("@")));
