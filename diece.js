@@ -17,3 +17,4 @@ if(player === 1) {
         pos = value - player;
     }
 }
+console.log(pos);
