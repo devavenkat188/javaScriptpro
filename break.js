@@ -1,6 +1,8 @@
-let i=6;
+let i=0;
 while(i<6){
-    i === 3;
-    break;
+    if(i === 3) {
+        break;
+    }
+   i++;
 }
     console.log(i);
