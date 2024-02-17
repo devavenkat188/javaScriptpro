@@ -1,6 +1,8 @@
-table = 1;
+var table = 1;
+let ans;
 while (table <= 10){
-    table*=2;
+    ans = ("2 * "+table+" = "+ 2 * table);
     table ++;
+    console.log(ans);
 }
-console.log(table);
+
