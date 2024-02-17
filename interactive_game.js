@@ -1,4 +1,4 @@
-let playaGame = confirm("Shall we play rock, paper or scissors ?");
+let playaGame = confirm("Well we play rock, paper or scissors ?");
 if(playaGame) {
     let playerChoice = prompt("please enter rock, paper or scissors");
     if(playerChoice) {
