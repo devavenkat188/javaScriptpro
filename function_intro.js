@@ -8,3 +8,4 @@ function printName() { // function declearation
 }
 
 printName(); // fucntion call.
+printName(); // to call a function at multiple times.
