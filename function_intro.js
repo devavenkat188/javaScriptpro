@@ -4,7 +4,7 @@ const person = { // Object
 };
 
 function printName() { // function declearation
-    console.log(name);
+    console.log(person.name);
 }
 
 printName(); // fucntion call.
