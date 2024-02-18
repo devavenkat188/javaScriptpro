@@ -15,4 +15,4 @@ function printPerson(person) {
 
 printPerson(person1);
 printPerson(person2);
-printPerson({name: "Arun", age: 25});
+printPerson({name: "Arun", age: 25}); // manually passing arguments.
