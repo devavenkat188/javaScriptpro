@@ -12,5 +12,5 @@ function printName(name,age) { // name & age is the parameter.
     console.log(name);
     console.log(age);
 }
-printName(person1.name,person1.age);
+printName(person1.name,person1.age); // person1.name , person1.age is the arguments.
 printName(person2.name,person2.age);
