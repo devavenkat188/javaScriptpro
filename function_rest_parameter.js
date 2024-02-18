@@ -8,10 +8,11 @@ const person2 = {
     age: 22,
 };
 
-function printPerson(...arg) {
-    console.log(arg);
+function printPerson(...arg) { // rest parameters.
     console.log(arg);
 }
 
 printPerson(person1);
-printPerson(); 
+printPerson(person1.name,person1.age);
+printPerson(person2);
+printPerson('Arun',25); 
