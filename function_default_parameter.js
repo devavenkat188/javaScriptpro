@@ -8,10 +8,10 @@ const person2 = {
     age: 22,
 };
 
-function printPerson(person = { name: "DefaultName", age: 0}) {
+function printPerson(person = { name: "DefaultName", age: 0}) { // Default Parameter
     console.log(person.name);
     console.log(person.age);
 }
 
 printPerson(person1);
-printPerson();
+printPerson(); // access the default parameter by without passing the arguments.
