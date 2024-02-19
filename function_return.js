@@ -10,4 +10,4 @@ function getFullName(firstName,lastName){
     console.log(name);
     }
 }
-getFullName("Deva","V");
+getFullName("Devashankar","V");
