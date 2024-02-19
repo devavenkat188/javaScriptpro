@@ -6,6 +6,6 @@ function addition (value1,value2){
     console.log(divison(10,2));
 
     const num = value1 + value2;
-    return num;
+    return num; 
 }
 console.log(addition(6,7));
