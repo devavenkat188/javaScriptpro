@@ -1,5 +1,5 @@
 class Employee {
-    employeeName = 'Devashankar';
+    employeeName = 'Devashankar'; // global variable
 
     print() {
         console.log(this.employeeName);
