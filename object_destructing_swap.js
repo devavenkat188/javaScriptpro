@@ -4,7 +4,7 @@ const employee = {
     age: 25,
 }
 /*
-function printNameandAge (employee) {
+function printNameandAge (employee) {  // direct uasge in function without destructuring.
     console.log(employee.fullName+'-'+employee.age);
 }
 printNameandAge(employee);
