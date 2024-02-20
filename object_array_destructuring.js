@@ -3,7 +3,7 @@ const employee = {
     company2: ['Arun','Amul']
 }
 
-const {company1:[name1 , name2], company2: [name3, name4]} = employee;
+const {company1:[name1 , name2], company2: [name3, name4]} = employee; // destructuring
 
 console.log(name1);
 console.log(name2);
