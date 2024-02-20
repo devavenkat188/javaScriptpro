@@ -1,6 +1,6 @@
 const employee = {
     fullName: "Devashankar",
-    lastName: "V",
+    lastName: undefined,
     age: 25,
 }
 /*
@@ -13,7 +13,7 @@ const {fullName,age} = employee; // destructuring
 console.log(fullName);
 console.log(age);
 
-function printNameandAge ({fullName,age}) { // destructuring can be written in this format also.
-    console.log(fullName+'-'+age);
+function printNameandAge ({fullName,lastName="V",age}) { // destructuring can be written in this format also.
+    console.log(fullName+'-'+lastName+'-'+age);
 }
 printNameandAge(employee);
