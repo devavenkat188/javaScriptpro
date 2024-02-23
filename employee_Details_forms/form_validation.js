@@ -1,17 +1,18 @@
-const form = document.getElementById("form");
-const firstName = document.getElementById("firstName");
-const lastName = document.getElementById("lastName");
-const email = document.getElementById("email");
-const phoneNumber = document.getElementById("phoneNumber");
-const date = document.getElementById("date");
-const position = document.getElementById("position");
-const address = document.getElementById("address");
-const experience = document.getElementById("experience");
+const form = document.querySelector("#form");
+const firstName = document.querySelector("#firstName");
+const lastName = document.querySelector("#lastName");
+const email = document.querySelector("#email");
+const phoneNumber = document.querySelector("#phoneNumber");
+const date = document.querySelector("#date");
+const position = document.querySelector("#position");
+const address = document.querySelector("#address");
+const experience = document.querySelector("#experience");
 
 form.addEventListener('submit',(e)=>{
-    e.preventDefault();
-    validateInputs();
-});
+    if(!validateInputs()){
+        e.preventDefault();
+    } 
+}); 
 function validateInputs() {
     const firstNameVal = firstName.value.trim();
     const lastNameVal = lastName.value.trim();
@@ -23,7 +24,7 @@ function validateInputs() {
 
     if(firstNameVal === ''){
         setError(firstName, "FirstName is Required");
-    } else if (firstNameVal.length <= 4) {
+    } else if (firstNameVal.length < 4) {
         setError(firstName, "FirstName should be minimum 4 characters");
     } else if(firstNameVal.length > 14) {
         setError(firstName, "FirstName should not exceeds to 14 characters");
@@ -33,9 +34,10 @@ function validateInputs() {
 
     if(lastNameVal === ''){
         setError(lastName, "LastName is Required");
-    } else if (lastNameVal.length === 1 && lastNameVal.toUpperCase) {
-        setError(lastName, "LastName should not exceeds 1 character and it must be in Captial Letter");
-    } else {
+    } else if(!validateLastName(lastName)) {
+        setError(lastName, "LastName will be in uppercase & 1 Character Only");
+    }
+    else {
         setSuccess(lastName);
     }
 
@@ -50,17 +52,44 @@ function validateInputs() {
 
     if(phoneNumberVal === ''){
         setError(phoneNumber, "Phone Number is Required");
-    } else if (phoneNumberVal.length > 10) {
+    } else if (!validatePhoneNumber(phoneNumber)) {
         setError(phoneNumber, "Phone Number should not exceeds more than 10 numbers");
-    } else if(phoneNumberVal.lenght < 10) {
-        setError(phoneNumber, "Phone Number must be atleast 10 Numbers");
     } else {
         setSuccess(phoneNumber);
+    }
+
+    if(positionVal === ''){
+        setError(position, "Position is required");
+    }
+    else if(positionVal.length > 15) {
+        setError(position, "Position should not exceeds 15 charatcers");
+    } else if(positionVal.length <= 1) {
+        setError(position, "Position will be more than 1 character");
+    } else {
+        setSuccess(position);
+    }
+
+    if(addressVal === '') {
+        setError(address, "Address is Required.");
+    } else if(addressVal.length > 20) {
+        setError(address, "Address should not exceed 20 character");
+    } else if(addressVal.length <= 5) {
+        setError(address, "Address will be more than 5 characters.")
+    } else {
+        setSuccess(address);
+    }
+
+    if(experienceVal === '') {
+        setError(experience, "Experience is Required.");
+    } else if(!validateExperience(experience)) {
+        setError(experience, "Experience range is between 1 to 15");
+    } else {
+        setSuccess(experience);
     }
 }
 function setError(element,message) {
     const inputGroup = element.parentElement;
-    const errorElement = inputGroup.getElementById('.error');
+    const errorElement = inputGroup.querySelector('.error');
     errorElement.innerText = message;
     inputGroup.classList.add('error');
     inputGroup.classList.remove('success');
@@ -78,5 +107,17 @@ const validateEmail = (email)   => {
     return String(email).toLowerCase().match(
         /^([a-zA-Z0-9-_\.]+)@([a-zA-Z0-9]+)\.([a-zA-Z]{2,10})(\.[a-zA-Z]{2,8})?$/
     );
+};
+
+const validateLastName = (lastName) => {
+    return String(lastName).toUpperCase().match(/^([A-Z]{1})$/);
+};
+
+const validatePhoneNumber = (phoneNumber) => {
+    return String(phoneNumber).match(/^([0-9]{10})$/);
+};
+
+const validateExperience = (experience) => {
+    return Number(experience).match(/^([0-9]{15})$/);
 };
 

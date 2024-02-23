@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Employee Details Form</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="./form_validation.js" defer></script>
+    <script src="form_validation.js" defer></script>
   </head>
   <body>
     <div class="container">
       <h1>Employee Details Form</h1>
       <form action="" id="form">
         <div class="input-group">
-          <label>First Name</label>
+          <label for="firstName">First Name</label>
           <input
             type="text"
             id="firstName"
@@ -21,17 +21,17 @@
           <div class="error"></div>
         </div>
         <div class="input-group">
-          <label>Last Name</label>
+          <label for="lastName">Last Name</label>
           <input type="text" id="lastName" placeholder="Enter your last name" />
           <div class="error"></div>
         </div>
         <div class="input-group">
-          <label>Email Address</label>
-          <input type="text" id="email" placeholder="Enter your emial" />
+          <label for="email">Email Address</label>
+          <input type="text" id="email" placeholder="Enter your email" />
           <div class="error"></div>
         </div>
         <div class="input-group">
-          <label>Phone Number</label>
+          <label for="phoneNumber">Phone Number</label>
           <input
             type="text"
             id="phoneNumber"
@@ -40,16 +40,16 @@
           <div class="error"></div>
         </div>
         <div class="input-group">
-          <label>Date of Birth</label>
+          <label for="date">Date of Birth</label>
           <input type="date" id="date" />
         </div>
         <div class="input-group">
-          <label>Position</label>
+          <label for="position">Position</label>
           <input type="text" id="position" placeholder="Enter your position" />
           <div class="error"></div>
         </div>
         <div class="input-group">
-          <label>Address</label>
+          <label for="address">Address</label>
           <input
             type="text"
             id="address"
@@ -58,7 +58,7 @@
           <div class="error"></div>
         </div>
         <div class="input-group">
-          <label>Years of Experience</label>
+          <label for="experience">Years of Experience</label>
           <input
             type="number"
             id="experience"
@@ -67,7 +67,7 @@
           <div class="error"></div>
         </div>
         <div class="input-group">
-          <label>Department</label>
+          <label for="dept">Department</label>
           <select>
             <option name="Department" value="IT"></option>
             <option name="Department" value="Human Resources">
@@ -80,7 +80,7 @@
           </select>
         </div>
         <div class="input-group">
-          <label>Upload CV</label>
+          <label for="cv">Upload CV</label>
           <div class="part">Please upload your CV in pdf fromat.</div>
           <input type="file" placeholder="choose file or drop here" /> <br />
         </div>
@@ -93,7 +93,7 @@
         of my knowledge. 
         
         <div class="input-group">
-        <input id="button" type="submit" value="Submit" />
+        <button id="button" type="submit" value="Submit">Submit</button>
         </div>
       </form>
     </div>
