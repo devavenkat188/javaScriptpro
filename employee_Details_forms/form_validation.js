@@ -1,18 +1,27 @@
-const form = document.querySelector("#form");
-const firstName = document.querySelector("#firstName");
-const lastName = document.querySelector("#lastName");
-const email = document.querySelector("#email");
-const phoneNumber = document.querySelector("#phoneNumber");
-const date = document.querySelector("#date");
-const position = document.querySelector("#position");
-const address = document.querySelector("#address");
-const experience = document.querySelector("#experience");
-
+const form = document.getElementById("form");
+const firstName = document.getElementById("firstName");
+const lastName = document.getElementById("lastName");
+const email = document.getElementById("email");
+const phoneNumber = document.getElementById("phoneNumber");
+const date = document.getElementById("date");
+const position = document.getElementById("position");
+const address = document.getElementById("address");
+const experience = document.getElementById("experience");
+const cv = document.getElementById("cv");
+/*
 form.addEventListener('submit',(e)=>{
-    if(!validateInputs()){
+    if(!validateInputs()) {
         e.preventDefault();
     } 
 }); 
+*/
+
+form.addEventListener('submit', function(e) {
+    if (!validateInputs()) {
+        e.preventDefault();
+    }
+});
+
 function validateInputs() {
     const firstNameVal = firstName.value.trim();
     const lastNameVal = lastName.value.trim();
@@ -21,6 +30,8 @@ function validateInputs() {
     const positionVal = position.value.trim();
     const addressVal = address.value.trim();
     const experienceVal = experience.value.trim();
+    const fileVal = cv.value.trim();
+    const dateVal = date.value.trim();
 
     if(firstNameVal === ''){
         setError(firstName, "FirstName is Required");
@@ -34,7 +45,7 @@ function validateInputs() {
 
     if(lastNameVal === ''){
         setError(lastName, "LastName is Required");
-    } else if(!validateLastName(lastName)) {
+    } else if(!validateLastName(lastNameVal)) {
         setError(lastName, "LastName will be in uppercase & 1 Character Only");
     }
     else {
@@ -52,8 +63,8 @@ function validateInputs() {
 
     if(phoneNumberVal === ''){
         setError(phoneNumber, "Phone Number is Required");
-    } else if (!validatePhoneNumber(phoneNumber)) {
-        setError(phoneNumber, "Phone Number should not exceeds more than 10 numbers");
+    } else if (!validatePhoneNumber(phoneNumberVal)) {
+        setError(phoneNumber, "Phone Number must have 10 numbers");
     } else {
         setSuccess(phoneNumber);
     }
@@ -81,11 +92,28 @@ function validateInputs() {
 
     if(experienceVal === '') {
         setError(experience, "Experience is Required.");
-    } else if(!validateExperience(experience)) {
+    } else if(!validateExperience(experienceVal)) {
         setError(experience, "Experience range is between 1 to 15");
     } else {
         setSuccess(experience);
     }
+
+    if(fileVal === ''){
+        setError(cv, "Please select the file");
+    } else if(!validateCV(fileVal)) {
+        setError(cv, "Unsupported Format");
+    }else {
+        setSuccess(cv);
+    }
+
+    if(dateVal === ''){
+        setError(date, "Please select the Date");
+    } else if(!validateDate(dateVal)) {
+        setError(date, "Date of birth can not be future");
+    } else {
+        setSuccess(date);
+    }
+    
 }
 function setError(element,message) {
     const inputGroup = element.parentElement;
@@ -110,7 +138,7 @@ const validateEmail = (email)   => {
 };
 
 const validateLastName = (lastName) => {
-    return String(lastName).toUpperCase().match(/^([A-Z]{1})$/);
+    return String(lastName).match(/^([A-Z])$/);
 };
 
 const validatePhoneNumber = (phoneNumber) => {
@@ -118,6 +146,25 @@ const validatePhoneNumber = (phoneNumber) => {
 };
 
 const validateExperience = (experience) => {
-    return Number(experience).match(/^([0-9]{15})$/);
+    const vaildateExp = parseInt(experience);
+    if(!isNaN(vaildateExp) && vaildateExp >= 1 && vaildateExp <= 15) {
+        return validateExperience;
+    }
+
 };
+
+const validateCV = (cv) => {
+    return String(cv).match(/^(\.pdf|\.doc|\.docx)$/i) !== null;
+};
+
+const validateDate = (date) => {
+    const currentDate = new Date();
+    const enteredDate = new Date(date);
+    if(enteredDate > currentDate) {
+        return validateDate();
+
+    }
+};
+
+
 

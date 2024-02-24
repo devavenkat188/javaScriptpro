@@ -42,6 +42,7 @@
         <div class="input-group">
           <label for="date">Date of Birth</label>
           <input type="date" id="date" />
+          <div class="error"></div>
         </div>
         <div class="input-group">
           <label for="position">Position</label>
@@ -81,8 +82,9 @@
         </div>
         <div class="input-group">
           <label for="cv">Upload CV</label>
-          <div class="part">Please upload your CV in pdf fromat.</div>
-          <input type="file" placeholder="choose file or drop here" /> <br />
+          <div class="part" >Please upload your CV in pdf fromat.</div>
+          <input type="file" id="cv" placeholder="choose file or drop here" />
+          <div class="error"></div>
         </div>
        
         <input
