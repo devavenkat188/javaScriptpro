@@ -41,10 +41,25 @@ h1 {
     padding: 10px;
     border: 1px solid rgb(34,193,195);
 }
+.input-group #dept {
+    border-radius: 5px;
+    font-size: 20px;
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid rgb(34,193,195);
+}
 .input-group input:focus {
+    outline: 0px; 
+}
+.input-group #dept:focus {
     outline: 0px;
 }
 .input-group .error {
+    color: rgb(242,18,18);
+    font-size: 15px;
+    margin-top: 5px;
+}
+.input-grp .error {
     color: rgb(242,18,18);
     font-size: 15px;
     margin-top: 5px;
@@ -58,5 +73,8 @@ h1 {
     border-color: #0cc477;
 }
 .input-group.error input {
+    border-color: rgb(206,67,67);
+}
+.input-group.error #dept{
     border-color: rgb(206,67,67);
 }

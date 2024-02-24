@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Employee Details Form</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="form_validation.js" defer></script>
+    
   </head>
   <body>
+    <script src="form_validation.js" defer></script>
     <div class="container">
       <h1>Employee Details Form</h1>
       <form action="" id="form">
@@ -69,8 +70,8 @@
         </div>
         <div class="input-group">
           <label for="dept">Department</label>
-          <select>
-            <option name="Department" value="IT"></option>
+          <select id="dept">
+            <option name="Department" value=""></option>
             <option name="Department" value="Human Resources">
               Human Resources
             </option>
@@ -79,6 +80,7 @@
             <option name="Department" value="Marketing">Marketing</option>
             <option name="Department" value="Finance">Finance</option>
           </select>
+          <div class="error"></div>
         </div>
         <div class="input-group">
           <label for="cv">Upload CV</label>
@@ -86,14 +88,13 @@
           <input type="file" id="cv" placeholder="choose file or drop here" />
           <div class="error"></div>
         </div>
-       
-        <input
-          type="checkbox"
-          name="message"
-          value="I confirm that the above information is accurate and true to the best of my knowledge."
-        />I confirm that the above information is accurate and true to the best
-        of my knowledge. 
-        
+        <div class="input-grp">
+        <input id="box"
+          type="checkbox" />
+          <label>I confirm that the above information is accurate and true to the best
+            of my knowledge.</label>
+        <div class="error"></div>
+        </div>
         <div class="input-group">
         <button id="button" type="submit" value="Submit">Submit</button>
         </div>
@@ -101,3 +102,6 @@
     </div>
   </body>
 </html>
+<!-- value=" I confirm that the above information is accurate and true to the best of my knowledge."
+        />I confirm that the above information is accurate and true to the best
+        of my knowledge. -->
