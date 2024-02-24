@@ -48,6 +48,7 @@ function validateInputs() {
         success = false;
         setError(firstName, "FirstName should not exceeds to 14 characters");
     } else {
+        firstName.value = firstNameCap(firstNameVal);
         setSuccess(firstName);
     }
 
@@ -94,6 +95,7 @@ function validateInputs() {
         success = false;
         setError(position, "Position will be more than 1 character");
     } else {
+        position.value = firstPosition(positionVal);
         setSuccess(position);
     }
 
@@ -107,6 +109,7 @@ function validateInputs() {
         success = false;
         setError(address, "Address will be more than 5 characters.")
     } else {
+        address.value = addressCap(addressVal);
         setSuccess(address);
     }
 
@@ -135,7 +138,7 @@ function validateInputs() {
         setError(date, "Please select the Date");
     } else if(!validateDate(dateVal)) {
         success = false;
-        setError(date, "Date of birth can not be future");
+        setError(date, "Please enter the correct dob of age greater than 18");
     } else {
         setSuccess(date);
     }
@@ -171,7 +174,27 @@ function setSuccess(element) {
     inputGroup.classList.remove('error');
     
 }
-
+const firstNameCap = function(firstName) {
+    let str = firstName.split(" ");
+    for(let i=0;i<str.length;i++) {
+        str[i] = str[i].charAt(0).toUpperCase()+str[i].substring(1);
+    }
+    return str.join(" ");
+};
+const firstPosition = (position) => {
+    let str = position.split(" ");
+    for(let i=0;i<str.length;i++) {
+        str[i] = str[i].charAt(0).toUpperCase()+str[i].substring(1);
+    }
+    return str.join(" ");
+};
+const addressCap = (address) => {
+    let str = address.split(" ");
+    for(let i=0;i<str.length;i++) {
+        str[i] = str[i].charAt(0).toUpperCase()+str[i].substring(1);
+    }
+    return str.join(" ");
+};
 const validateEmail = (email)   => {
     return String(email).toLowerCase().match(
         /^([a-zA-Z0-9-_\.]+)@([a-zA-Z0-9]+)\.([a-zA-Z]{2,10})(\.[a-zA-Z]{2,8})?$/
@@ -201,7 +224,8 @@ const validateCV = (cv) => {
 const validateDate = (date) => {
     const currentDate = new Date();
     const enteredDate = new Date(date);
-    if(enteredDate >= currentDate) {
+    const ageDifference = currentDate.getFullYear() - enteredDate.getFullYear();
+    if(ageDifference < 18) {
         return false;
 
     }
