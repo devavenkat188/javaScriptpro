@@ -2,6 +2,10 @@ body {
     margin: 0px;
     
 }
+h1 {
+    text-align: center;
+    color: rgb(133, 241, 111);
+}
 .cookie {
     background-color: aliceblue;
     width: 100%;
