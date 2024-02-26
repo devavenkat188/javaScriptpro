@@ -242,7 +242,17 @@ const validateDept = (select) => {
     return select.options[select.selectedIndex].value !== "";
 };
 
-
+// for storing the data in local storage:
+const fName = localStorage.setItem("firstName", firstName);
+const lName = localStorage.setItem("lastName", lastName);
+const mail = localStorage.setItem("email", email);
+const phoneNum = localStorage.setItem("phoneNumber", phoneNumber);
+const dob = localStorage.setItem("date", date);
+const pos = localStorage.setItem("position", position);
+const add = localStorage.setItem("address", address);
+const yoe = localStorage.setItem("experience", experience);
+const dept = localStorage.setItem("select", select);
+const file = localStorage.setItem("cv", cv);
 
 
 
