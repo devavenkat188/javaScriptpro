@@ -1,0 +1,19 @@
+<!DOCTYPE html>  <!-- Document type -- node -->
+<html lang="en">
+<head>             <!-- head, title, body -- Element type node -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>  <!-- Document -- text node -->
+</head>
+<body>
+    <!-- Comment --> -- <!-- Comment Node -->
+    <div> <!-- Parent element of <p> -->
+    <p id="message">Javascript DOM </p> <!-- id of the html element is unique -->
+    <p id="message">Javascript</p> <!-- Multiple element with the same id, it will display the first element -->
+    </div>
+    <script>
+        let msg = document.getElementById("message");
+        console.log(msg);
+    </script>
+</body>
+</html>

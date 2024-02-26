@@ -105,7 +105,7 @@ function validateInputs() {
     } else if(addressVal.length > 50) {
         success = false;
         setError(address, "Address should not exceed 50 character");
-    } else if(addressVal.length <= 5) {
+    } else if(addressVal.length <= 4) {
         success = false;
         setError(address, "Address will be more than 5 characters.")
     } else {
