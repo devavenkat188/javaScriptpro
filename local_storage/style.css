@@ -1,0 +1,22 @@
+body {
+    margin: 0px;
+    
+}
+.cookie {
+    background-color: aliceblue;
+    width: 100%;
+    position: fixed;
+    padding: 20px;
+    bottom: 0%;
+}
+.cookie p {
+    font-size: 25px;
+    
+}
+.btn {
+    padding: 10px 45px;
+    background-color: aquamarine;
+    color: white;
+    font-size: 18px;
+    
+}
