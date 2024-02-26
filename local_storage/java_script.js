@@ -1,18 +1,14 @@
-var cookie = document.getElementById('cookie');
-var button = document.getElementById('btn');
+document.addEventListener('DOMContentLoaded', function() {
+    var button = document.getElementById('btn');
+    var cookie = document.getElementById('cookie');
 
-button.addEventListener('click', () => {
-    console.log("Hello World");
+    button.addEventListener('click', () => {
+        cookie.classList.remove('active');
+    });
+
+    setTimeout(() => {
+        cookie.classList.add('active');
+    }, 2000);
 });
 
-// Get the button element
-var button = document.getElementById('btn'); 
 
-// Add click event listener to the button
-button.addEventListener('click', function() {
-    // Store a value in local storage
-    localStorage.setItem('cookieAccepted', 'true');
-    
-    // Optionally, you can add some visual feedback or perform other actions here
-    console.log("Cookies accepted");
-});

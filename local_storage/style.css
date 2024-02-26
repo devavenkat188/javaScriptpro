@@ -7,6 +7,9 @@ body {
     width: 100%;
     position: fixed;
     padding: 20px;
+    bottom: -100%;
+}
+.cookie.active {
     bottom: 0%;
 }
 .cookie p {
@@ -18,5 +21,10 @@ body {
     background-color: aquamarine;
     color: white;
     font-size: 18px;
-    
+
+
+}
+.btn :focus {
+    border-color: aquamarine;
+    outline: 0px;
 }
