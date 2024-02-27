@@ -72,7 +72,7 @@ function validateInputs() {
             localStorage.setItem('cv',fileVal);
             localStorage.setItem('box',boxVal);
         // Retreiving stored data & using it for calculation:
-        const form = localStorage.setItem('formData', formDataJSON);
+        const form = localStorage.setItem('formData',formDataJSON);
         const fName = localStorage.setItem('firstName',firstNameVal);
         const lName = localStorage.setItem('lastName',lastNameVal);
         const mail = localStorage.setItem('email',emailVal);
@@ -84,6 +84,7 @@ function validateInputs() {
         const dept = localStorage.setItem('select',selectVal);
         const file = localStorage.setItem('cv',fileVal);
         const checkBox = localStorage.setItem('box',boxVal);
+        
 
         var namef, namel, mailid, pNumber, birth, posit, addre, exper, depart;
         namef = "Devashankar";
@@ -96,7 +97,7 @@ function validateInputs() {
         exper = 1;
         depart = "IT";
 
-        if(namef == fName && namel == lName && mail == mailid) {
+        if(namef == fName && namel == lName) {
             alert("Data Collected Successfully !");
         } else {
             alert("Data Not Matched");
