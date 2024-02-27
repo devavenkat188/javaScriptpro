@@ -106,14 +106,14 @@ function validateInputs() {
             sessionStorage.setItem('firstName',firstNameVal);
             sessionStorage.setItem('lastName',lastNameVal);
             sessionStorage.setItem('email',emailVal);
-           // sessionStorage.setItem('phoneNumber',phoneNumberVal);
-            // sessionStorage.setItem('date',dateVal);
-            //sessionStorage.setItem('position',positionVal);
-            //sessionStorage.setItem('address',addressVal);
-            //sessionStorage.setItem('experience',experienceVal);
-            //sessionStorage.setItem('select',selectVal);
-            //sessionStorage.setItem('cv',fileVal);
-            //sessionStorage.setItem('box',boxVal);
+            sessionStorage.setItem('phoneNumber',phoneNumberVal);
+            sessionStorage.setItem('date',dateVal);
+            sessionStorage.setItem('position',positionVal);
+            sessionStorage.setItem('address',addressVal);
+            sessionStorage.setItem('experience',experienceVal);
+            sessionStorage.setItem('select',selectVal);
+            sessionStorage.setItem('cv',fileVal);
+            sessionStorage.setItem('box',boxVal);
         } 
     
 
