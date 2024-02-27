@@ -35,8 +35,86 @@ function validateInputs() {
     const fileVal = cv.value.trim();
     const dateVal = date.value.trim();
     let success = true;
-   // const boxVal = box.value.trim();
-   // const selectVal = select.value.trim();
+    const boxVal = box.value.trim();
+    const selectVal = select.value.trim();
+    
+        // If all inputs are valid, store the data in local storage
+        if (success) {
+            // Create an object to store all the form data
+            const formData = {
+                firstName: firstNameVal,
+                lastName: lastNameVal,
+                email: emailVal,
+                phoneNumber: phoneNumberVal,
+                position: positionVal,
+                address: addressVal,
+                experience: experienceVal,
+                cv: fileVal,
+                date: dateVal,
+                box: boxVal,
+                select: selectVal
+            };
+    
+            // Convert the formData object to a JSON string
+            const formDataJSON = JSON.stringify(formData);
+    
+            // Store the JSON string in local storage
+            localStorage.setItem('formData', formDataJSON);
+            localStorage.setItem('firstName',firstNameVal);
+            localStorage.setItem('lastName',lastNameVal);
+            localStorage.setItem('email',emailVal);
+            localStorage.setItem('phoneNumber',phoneNumberVal);
+            localStorage.setItem('date',dateVal);
+            localStorage.setItem('position',positionVal);
+            localStorage.setItem('address',addressVal);
+            localStorage.setItem('experience',experienceVal);
+            localStorage.setItem('select',selectVal);
+            localStorage.setItem('cv',fileVal);
+            localStorage.setItem('box',boxVal);
+        // Retreiving stored data & using it for calculation:
+        const form = localStorage.setItem('formData', formDataJSON);
+        const fName = localStorage.setItem('firstName',firstNameVal);
+        const lName = localStorage.setItem('lastName',lastNameVal);
+        const mail = localStorage.setItem('email',emailVal);
+        const phNumber = localStorage.setItem('phoneNumber',phoneNumberVal);
+        const dob = localStorage.setItem('date',dateVal);
+        const pos = localStorage.setItem('position',positionVal);
+        const add = localStorage.setItem('address',addressVal);
+        const exp = localStorage.setItem('experience',experienceVal);
+        const dept = localStorage.setItem('select',selectVal);
+        const file = localStorage.setItem('cv',fileVal);
+        const checkBox = localStorage.setItem('box',boxVal);
+
+        var namef, namel, mailid, pNumber, birth, posit, addre, exper, depart;
+        namef = "Devashankar";
+        namel = "V";
+        mailid = "devavenkat188@gmail.com";
+        pNumber = 9944978592;
+        birth = "1999-05-01";
+        posit = "Software";
+        addre = "Salem";
+        exper = 1;
+        depart = "IT";
+
+        if(namef == fName && namel == lName && mail == mailid) {
+            alert("Data Collected Successfully !");
+        } else {
+            alert("Data Not Matched");
+        }
+
+            sessionStorage.setItem('firstName',firstNameVal);
+            sessionStorage.setItem('lastName',lastNameVal);
+            sessionStorage.setItem('email',emailVal);
+           // sessionStorage.setItem('phoneNumber',phoneNumberVal);
+            // sessionStorage.setItem('date',dateVal);
+            //sessionStorage.setItem('position',positionVal);
+            //sessionStorage.setItem('address',addressVal);
+            //sessionStorage.setItem('experience',experienceVal);
+            //sessionStorage.setItem('select',selectVal);
+            //sessionStorage.setItem('cv',fileVal);
+            //sessionStorage.setItem('box',boxVal);
+        } 
+    
 
     if(firstNameVal === ''){
         success = false;
@@ -158,6 +236,8 @@ function validateInputs() {
         setSuccess(select);
     } 
     return success;
+    
+
 } 
 function setError(element,message) {
     const inputGroup = element.parentElement;
@@ -242,17 +322,58 @@ const validateDept = (select) => {
     return select.options[select.selectedIndex].value !== "";
 };
 
+/* function valid() {
+    const firstNameVal = firstName.value.trim();
+    const lastNameVal = lastName.value.trim();
+    const emailVal = email.value();
+    const phoneNumberVal = phoneNumber.value.trim();
+    const positionVal = position.value.trim()
+    const addressVal = address.value.trim();
+    const experienceVal = experience.value.trim();
+    const fileVal = cv.value.trim();
+    const dateVal = date.value.trim();
+    const boxVal = box.value.trim();
+    const selectVal = select.value.trim();
+    let value = true;
+
+    if(valid) {
+        const formData = {
+        firstName: firstNameVal,
+        lastName: lastNameVal,
+        email: emailVal,
+        phoneNumber: phoneNumberVal,
+        position: positionVal,
+        address: addressVal,
+        experience: experienceVal,
+        cv: fileVal,
+        date: dateVal,
+        box: boxVal,
+        select: selectVal
+    };
+
+    const formDataJSON = JSON.stringify(formData);
+
+    localStorage.setItem('formData', formDataJSON);
+}
+    return valid;
+}
+*/
+
 // for storing the data in local storage:
-const fName = localStorage.setItem("firstName", firstName);
-const lName = localStorage.setItem("lastName", lastName);
-const mail = localStorage.setItem("email", email);
-const phoneNum = localStorage.setItem("phoneNumber", phoneNumber);
-const dob = localStorage.setItem("date", date);
-const pos = localStorage.setItem("position", position);
-const add = localStorage.setItem("address", address);
-const yoe = localStorage.setItem("experience", experience);
-const dept = localStorage.setItem("select", select);
-const file = localStorage.setItem("cv", cv);
+/*const fName = localStorage.setItem("firstName", firstName).value;
+const lName = localStorage.setItem("lastName", lastName).value;
+const mail = localStorage.setItem("email", email).value;
+const phoneNum = localStorage.setItem("phoneNumber", phoneNumber).value;
+const dob = localStorage.setItem("date", date).value;
+const pos = localStorage.setItem("position", position).value;
+const add = localStorage.setItem("address", address).value;
+const yoe = localStorage.setItem("experience", experience).value;
+const dept = localStorage.setItem("select", select).value;
+const file = localStorage.setItem("cv", cv).value;
+*/
+
+
+
 
 
 
