@@ -5,10 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Employee Details Form</title>
     <link rel="stylesheet" href="style.css" />
-    
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css"
+    />
   </head>
   <body>
     <script src="form_validation.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"
+    ></script>
     <div class="container">
       <h1>Employee Details Form</h1>
       <form action="" id="form">
@@ -84,22 +94,33 @@
         </div>
         <div class="input-group">
           <label for="cv">Upload CV</label>
-          <div class="part" >Please upload your CV in pdf fromat.</div>
+          <div class="part">Please upload your CV in pdf fromat.</div>
           <input type="file" id="cv" placeholder="choose file or drop here" />
           <div class="error"></div>
         </div>
         <div class="input-grp">
-        <input id="box"
-          type="checkbox" />
-          <label>I confirm that the above information is accurate and true to the best
-            of my knowledge.</label>
-        <div class="error"></div>
+          <input id="box" type="checkbox" />
+          <label
+            >I confirm that the above information is accurate and true to the
+            best of my knowledge.</label
+          >
+          <div class="error"></div>
         </div>
         <div class="input-group">
-        <button id="button" type="submit" value="Submit">Submit</button>
+          <button id="button" type="submit" value="Submit">Submit</button>
         </div>
       </form>
     </div>
+    <table id="formDataTable" class="display" style="width: 100%" >
+      <thead>
+        <tr>
+          <th>Fied</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody id ="table-body">
+      </tbody>
+    </table>
   </body>
 </html>
 <!-- value=" I confirm that the above information is accurate and true to the best of my knowledge."

@@ -39,7 +39,7 @@ function validateInputs() {
     const selectVal = select.value.trim();
     
         // If all inputs are valid, store the data in local storage
-        if (success) {
+       if (success) {
             // Create an object to store all the form data
             const formData = {
                 firstName: firstNameVal,
@@ -60,7 +60,7 @@ function validateInputs() {
     
             // Store the JSON string in local storage
             localStorage.setItem('formData', formDataJSON);
-            localStorage.setItem('firstName',firstNameVal);
+            /*localStorage.setItem('firstName',firstNameVal);
             localStorage.setItem('lastName',lastNameVal);
             localStorage.setItem('email',emailVal);
             localStorage.setItem('phoneNumber',phoneNumberVal);
@@ -71,8 +71,10 @@ function validateInputs() {
             localStorage.setItem('select',selectVal);
             localStorage.setItem('cv',fileVal);
             localStorage.setItem('box',boxVal);
+            */
+
         // Retreiving stored data & using it for calculation:
-        const form = localStorage.setItem('formData',formDataJSON);
+       /* const form = localStorage.setItem('formData',formDataJSON);
         const fName = localStorage.setItem('firstName',firstNameVal);
         const lName = localStorage.setItem('lastName',lastNameVal);
         const mail = localStorage.setItem('email',emailVal);
@@ -102,7 +104,7 @@ function validateInputs() {
         } else {
             alert("Data Not Matched");
         }
-
+    */
             sessionStorage.setItem('firstName',firstNameVal);
             sessionStorage.setItem('lastName',lastNameVal);
             sessionStorage.setItem('email',emailVal);
@@ -239,7 +241,7 @@ function validateInputs() {
     return success;
     
 
-} 
+}
 function setError(element,message) {
     const inputGroup = element.parentElement;
     const errorElement = inputGroup.querySelector('.error');
@@ -322,6 +324,140 @@ const validateDate = (date) => {
 const validateDept = (select) => {
     return select.options[select.selectedIndex].value !== "";
 };
+
+form.addEventListener('submit', function(e) {
+    if(!validateInputs()) {
+        e.preventDefault();
+        return;
+    }
+
+    const formDataArray = [];
+
+    formDataArray.push({
+        key: 'firstName',
+        value: firstName.value.trim()
+    });
+    formDataArray.push({
+        key: 'lastName',
+        value: lastName.value.trim()
+    });
+    formDataArray.push({
+        key: 'email',
+        value: email.value.trim()
+    });
+    formDataArray.push({
+        key: 'phoneNumber',
+        value: phoneNumber.value.trim()
+    });
+    formDataArray.push({
+        key: 'date',
+        value: date.value.trim()
+    });
+    formDataArray.push({
+        key: 'position',
+        value: position.value.trim()
+    });
+    formDataArray.push({
+        key: 'address',
+        value: address.value.trim()
+    });
+    formDataArray.push({
+        key: 'experience',
+        value: experience.value.trim()
+    });
+    formDataArray.push({
+        key: 'select',
+        value: select.value.trim()
+    });
+    formDataArray.push({
+        key: 'cv',
+        value: cv.value.trim()
+    });
+    formDataArray.push({
+        key: 'box',
+        value: box.checked ? 'checked' : 'unchecked'
+    });
+
+    const formDataArrayJSON = JSON.stringify(formDataArray);
+
+    localStorage.setItem('formData', formDataArrayJSON);
+});
+$(document).ready(function() {
+const storedFormData = localStorage.getItem('formData');
+if(storedFormData) {
+    const storedFormData = JSON.parse(storedFormData);
+
+    const tableBody = $('#table-body');
+
+    formDataArray.forEach(function (item) {
+            const row = '<tr><td>' +item.key+ '</tr><td>' +item.value+ '</td></tr>';
+            tableBody.append(row);
+    });
+    $('#formDataTable').DataTable();
+}
+});
+/* form.addEventListener('submit', function(e) {
+    if (!validateInputs()) {
+        e.preventDefault();
+        return;
+    }
+
+    const formDataArray = []; 
+
+    
+    formDataArray.push({
+        key: 'firstName',
+        value: firstName.value.trim()
+    });
+    formDataArray.push({
+        key: 'lastName',
+        value: lastName.value.trim()
+    });
+    formDataArray.push({
+        key: 'email',
+        value: email.value.trim()
+    });
+    formDataArray.push({
+        key: 'phoneNumber',
+        value: phoneNumber.value.trim()
+    });
+    formDataArray.push({
+        key: 'date',
+        value: date.value.trim()
+    });
+    formDataArray.push({
+        key: 'position',
+        value: position.value.trim()
+    });
+    formDataArray.push({
+        key: 'address',
+        value: address.value.trim()
+    });
+    formDataArray.push({
+        key: 'experience',
+        value: experience.value.trim()
+    });
+    formDataArray.push({
+        key: 'select',
+        value: select.value.trim()
+    });
+    formDataArray.push({
+        key: 'cv',
+        value: cv.value.trim()
+    });
+    formDataArray.push({
+        key: 'box',
+        value: box.checked ? 'checked' : 'unchecked'
+    });
+
+    // Convert the array to a JSON string
+    const formDataArrayJSON = JSON.stringify(formDataArray);
+
+    localStorage.setItem('formData', formDataArrayJSON);
+});
+
+*/
+
 
 /* function valid() {
     const firstNameVal = firstName.value.trim();
