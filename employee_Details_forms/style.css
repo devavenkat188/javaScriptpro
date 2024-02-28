@@ -78,3 +78,11 @@ h1 {
 .input-group.error #dept{
     border-color: rgb(206,67,67);
 }
+.display {
+    width: 700px;
+    margin: 5vh auto 0 auto;
+    background-color: whitesmoke;   
+    border-radius: 5px;
+    border-color: 2px solid black;
+    padding: 30px;
+}

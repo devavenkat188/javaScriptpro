@@ -382,20 +382,22 @@ form.addEventListener('submit', function(e) {
 
     localStorage.setItem('formData', formDataArrayJSON);
 });
+
 $(document).ready(function() {
 const storedFormData = localStorage.getItem('formData');
 if(storedFormData) {
-    const storedFormData = JSON.parse(storedFormData);
+    const formDataArray = JSON.parse(storedFormData);
 
     const tableBody = $('#table-body');
 
     formDataArray.forEach(function (item) {
-            const row = '<tr><td>' +item.key+ '</tr><td>' +item.value+ '</td></tr>';
+            const row = '<tr><td>' +item.key+ '</td><td>' +item.value+ '</td></tr>';
             tableBody.append(row);
     });
     $('#formDataTable').DataTable();
 }
 });
+
 /* form.addEventListener('submit', function(e) {
     if (!validateInputs()) {
         e.preventDefault();
