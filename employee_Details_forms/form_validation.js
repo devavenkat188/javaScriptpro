@@ -351,11 +351,11 @@ const validateDept = (select) => {
 };
 
 $(document).ready(function() {
-    const storedFormData = localStorage.getItem('formData');
+    const storedFormData = localStorage.getItem('formDataArray');
 
     // Check if formData exists in localStorage and is not null
     if (storedFormData) {
-        let formDataArray = JSON.stringify(JSON.parse(storedFormData));
+        let formDataArray = JSON.parse(storedFormData);
         formDataArray = [storedFormData];
 
         // Check if formDataArray is an array
@@ -384,7 +384,114 @@ $(document).ready(function() {
         console.log('No form data found in localStorage.');
     }
 
-    /* const form = document.getElementById("form");
+    const form = document.getElementById("form");
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        let formDataArray = [];
+
+        // Retrieve form elements
+        const firstName = document.getElementById('firstName');
+        const lastName = document.getElementById('lastName');
+        const email = document.getElementById('email');
+        const phoneNumber = document.getElementById('phoneNumber');
+        const date = document.getElementById('date');
+        const position = document.getElementById('position');
+        const address = document.getElementById('address');
+        const experience = document.getElementById('experience');
+        const select = document.getElementById('select');
+        const cv = document.getElementById('cv');
+        const box = document.getElementById('box');
+
+        // Push form data into formDataArray
+        formDataArray.push({
+            key: 'firstName',
+            value: firstName.value.trim()
+        });
+        formDataArray.push({
+            key: 'lastName',
+            value: lastName.value.trim()
+        });
+        formDataArray.push({
+            key: 'email',
+            value: email.value.trim()
+        });
+        formDataArray.push({
+            key: 'phoneNumber',
+            value: phoneNumber.value.trim()
+        });
+        formDataArray.push({
+            key: 'date',
+            value: date.value.trim()
+        });
+        formDataArray.push({
+            key: 'position',
+            value: position.value.trim()
+        });
+        formDataArray.push({
+            key: 'address',
+            value: address.value.trim()
+        });
+        formDataArray.push({
+            key: 'experience',
+            value: experience.value.trim()
+        });
+        formDataArray.push({
+            key: 'select',
+            value: select
+        });
+        formDataArray.push({
+            key: 'cv',
+            value: cv.value.trim()
+        });
+        formDataArray.push({
+            key: 'box',
+            value: box.checked ? 'checked' : 'unchecked'
+        });
+
+        // Store formDataArray in localStorage
+        localStorage.setItem('formDataArray', JSON.parse(formDataArray));
+    });
+});
+
+
+/*
+$(document).ready(function() {
+    const storedFormData = localStorage.getItem('formData');
+
+    // Check if formData exists in localStorage and is not null
+    if (storedFormData) {
+        let formDataArray = JSON.parse(storedFormData);
+        formDataArray = [storedFormData];
+
+        // Check if formDataArray is an array
+        if (Array.isArray(formDataArray)) {
+            // Initialize DataTable with the formDataArray
+            $('#formDataTable').DataTable({
+                data: [formDataArray],
+                columns: [
+                    {data:'firstName', title:'First Name'},
+                    {data:'lastName', title:'Last Name'},
+                    {data:'email', title:'Email'},
+                    {data:'phoneNumber', title:'Phone Number'},
+                    {data:'date', title:'Date'},
+                    {data:'position', title:'Position'},
+                    {data:'address', title:'Address'},
+                    {data:'experience', title:'Experience'},
+                    {data:'select', title:'Department'},
+                    {data:'cv', title:'File'},
+                    {data:'box', title:'Check Box'}
+                ]
+            });
+        } else {
+           console.error('Error parsing form data: Data retrieved from localStorage is not an array');
+        }
+    } else {
+        console.log('No form data found in localStorage.');
+    }
+
+     //const form = document.getElementById("form");
 
     form.addEventListener('submit', function(e) {
         if (!validateInputs()) {
@@ -393,8 +500,56 @@ $(document).ready(function() {
             // Store formDataArray directly after parsing
             localStorage.setItem('formData', storedFormData);
         } 
-    }); */
+        formDataArray.push({
+            key: 'firstName',
+            value: firstName.value.trim()
+        });
+        formDataArray.push({
+            key: 'lastName',
+            value: lastName.value.trim()
+        });
+        formDataArray.push({
+            key: 'email',
+            value: email.value.trim()
+        });
+        formDataArray.push({
+            key: 'phoneNumber',
+            value: phoneNumber.value.trim()
+        });
+        formDataArray.push({
+            key: 'date',
+            value: date.value.trim()
+        });
+        formDataArray.push({
+            key: 'position',
+            value: position.value.trim()
+        });
+        formDataArray.push({
+            key: 'address',
+            value: address.value.trim()
+        });
+        formDataArray.push({
+            key: 'experience',
+            value: experience.value.trim()
+        });
+        formDataArray.push({
+            key: 'select',
+            value: select.value.trim()
+        });
+        formDataArray.push({
+            key: 'cv',
+            value: cv.value.trim()
+        });
+        formDataArray.push({
+            key: 'box',
+            value: box.checked ? 'checked' : 'unchecked'
+        });
+        const formDataArrayJSON = JSON.parse(formDataArray);
+        localStorage.setItem('formDataArray', formDataArrayJSON);
+    }); 
+
 });
+*/
 
 // Your other functions (e.g., validateInputs) go here
 
