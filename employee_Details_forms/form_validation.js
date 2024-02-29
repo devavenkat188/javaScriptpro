@@ -53,14 +53,38 @@ function validateInputs() {
                 date: dateVal,
                 box: boxVal,
                 select: selectVal
-            };
-    
+            }; 
+
+        // Inside the form submission handler, after validating inputs
+       /* form.addEventListener('submit', function(e) {
+            if (!validateInputs()) {
+                e.preventDefault();
+            } else {
+                const formDataArray = []; // Initialize an empty array to store form data
+                const formDataObject = {
+                    firstName: firstNameVal,
+                    lastName: lastNameVal,
+                    email: emailVal,
+                    phoneNumber: phoneNumberVal,
+                    position: positionVal,
+                    address: addressVal,
+                    experience: experienceVal,
+                    cv: fileVal,
+                    date: dateVal,
+                    box: boxVal,
+                    select: selectVal
+                };
+                formDataArray.push(formDataObject); // Push the object to the array
+                localStorage.setItem('formDataArray', JSON.stringify(formDataArray)); // Store the array in local storage
+            }
+        });
+        */
             // Convert the formData object to a JSON string
             const formDataJSON = JSON.stringify(formData);
     
             // Store the JSON string in local storage
             localStorage.setItem('formData', formDataJSON);
-            /*localStorage.setItem('firstName',firstNameVal);
+           /* localStorage.setItem('firstName',firstNameVal);
             localStorage.setItem('lastName',lastNameVal);
             localStorage.setItem('email',emailVal);
             localStorage.setItem('phoneNumber',phoneNumberVal);
@@ -105,7 +129,7 @@ function validateInputs() {
             alert("Data Not Matched");
         }
     */
-            sessionStorage.setItem('firstName',firstNameVal);
+       /*     sessionStorage.setItem('firstName',firstNameVal);
             sessionStorage.setItem('lastName',lastNameVal);
             sessionStorage.setItem('email',emailVal);
             sessionStorage.setItem('phoneNumber',phoneNumberVal);
@@ -116,6 +140,7 @@ function validateInputs() {
             sessionStorage.setItem('select',selectVal);
             sessionStorage.setItem('cv',fileVal);
             sessionStorage.setItem('box',boxVal);
+            */
         } 
     
 
@@ -325,6 +350,229 @@ const validateDept = (select) => {
     return select.options[select.selectedIndex].value !== "";
 };
 
+$(document).ready(function() {
+    const storedFormData = localStorage.getItem('formData');
+
+    // Check if formData exists in localStorage and is not null
+    if (storedFormData) {
+        let formDataArray = JSON.stringify(JSON.parse(storedFormData));
+        formDataArray = [storedFormData];
+
+        // Check if formDataArray is an array
+        if (Array.isArray(formDataArray)) {
+            // Initialize DataTable with the formDataArray
+            $('#formDataTable').DataTable({
+                data: [formDataArray],
+                columns: [
+                    {data:'firstName', title:'First Name'},
+                    {data:'lastName', title:'Last Name'},
+                    {data:'email', title:'Email'},
+                    {data:'phoneNumber', title:'Phone Number'},
+                    {data:'date', title:'Date'},
+                    {data:'position', title:'Position'},
+                    {data:'address', title:'Address'},
+                    {data:'experience', title:'Experience'},
+                    {data:'select', title:'Department'},
+                    {data:'cv', title:'File'},
+                    {data:'box', title:'Check Box'}
+                ]
+            });
+        } else {
+           console.error('Error parsing form data: Data retrieved from localStorage is not an array');
+        }
+    } else {
+        console.log('No form data found in localStorage.');
+    }
+
+    /* const form = document.getElementById("form");
+
+    form.addEventListener('submit', function(e) {
+        if (!validateInputs()) {
+            e.preventDefault();
+        } else {
+            // Store formDataArray directly after parsing
+            localStorage.setItem('formData', storedFormData);
+        } 
+    }); */
+});
+
+// Your other functions (e.g., validateInputs) go here
+
+/*
+form.addEventListener('submit', function(e) {
+    if(!validateInputs()) {
+        e.preventDefault();
+        return;
+    }
+
+$(document).ready(function() {
+    const storedFormData = localStorage.getItem('formData');
+
+    // Check if formData exists in localStorage and is not null
+    if (storedFormData) {
+        let formDataArray = JSON.parse(storedFormData);
+
+        // Check if formDataArray is an array
+        if (Array.isArray(formDataArray)) {
+            // Initialize DataTable with the formDataArray
+            $('#formDataTable').DataTable({
+                data: [formDataArray],
+                columns: [
+                    {data:'firstName', title:'First Name'},
+                    {data:'lastName', title:'Last Name'},
+                    {data:'email', title:'Email'},
+                    {data:'phoneNumber', title:'Phone Number'},
+                    {data:'date', title:'Date'},
+                    {data:'position', title:'Position'},
+                    {data:'address', title:'Address'},
+                    {data:'experience', title:'Experience'},
+                    {data:'select', title:'Department'},
+                    {data:'cv', title:'File'},
+                    {data:'box', title:'Check Box'}
+                ]
+            });
+        } else {
+            console.error('Error parsing form data: Data retrieved from localStorage is not an array');
+            // Initialize DataTable with an empty array as fallback
+            $('#formDataTable').DataTable({
+                data: [formDataArray],
+                columns: [
+                    {data:'firstName', title:'First Name'},
+                    {data:'lastName', title:'Last Name'},
+                    {data:'email', title:'Email'},
+                    {data:'phoneNumber', title:'Phone Number'},
+                    {data:'date', title:'Date'},
+                    {data:'position', title:'Position'},
+                    {data:'address', title:'Address'},
+                    {data:'experience', title:'Experience'},
+                    {data:'select', title:'Department'},
+                    {data:'cv', title:'File'},
+                    {data:'box', title:'Check Box'}
+                ]
+            });
+        }
+    } else {
+        console.log('No form data found in localStorage.');
+    }
+});
+    const formDataArrayJSON = JSON.parse(formDataArray);
+
+    localStorage.setItem('formData', formDataArrayJSON);
+});
+*/
+
+
+/* $(document).ready(function() {
+    const storedFormData = localStorage.getItem('formData');
+    
+    if(storedFormData) {
+        const formDataArray = JSON.parse(storedFormData);
+           */
+        // localStorage.setItem('formData', JSON.stringify(formDataArray));
+
+        /* $(document).ready(function() {
+            const storedFormData = localStorage.getItem('formData');
+                       
+                let formDataArray = JSON.parse(storedFormData);
+                    formDataArray = [storedFormData];
+                    //formDataArray = JSON.parse(storedFormData);
+                    // formDataArray = [storedFormData];
+                $('#formDataTable').DataTable({
+                    data: [formDataArray],
+                    columns: [
+                        {data:'firstName', title:'First Name'},
+                        {data:'lastName', title:'Last Name'},
+                        {data:'email', title:'Email'},
+                        {data:'phoneNumber', title:'Phone Number'},
+                        {data:'date', title:'Date'},
+                        {data:'position', title:'Position'},
+                        {data:'address', title:'Address'},
+                        {data:'experience', title:'Experience'},
+                        {data:'select', title:'Department'},
+                        {data:'cv', title:'File'},
+                        {data:'box', title:'Check Box'}
+                    ]
+                });
+    
+        });
+        
+     */   
+    /*    $('#formDataTable').DataTable({
+            
+            data: [formDataArray],
+            columns: [
+                {data:'firstName',title:'First Name'},
+                {data:'lastName',title:'Last Name'},
+                {data:'email',title:'Email'},
+                {data:'phoneNumber',title:'Phone Number'},
+                {data:'date',title:'Date'},
+                {data:'position',title:'Position'},
+                {data:'address',title:'Address'},
+                {data:'experience',title:'Experience'},
+                {data:'select',title:'Department'},
+                {data:'cv',title:'File'},
+                {data:'box',title:'Check Box'}
+            ]
+            
+        });
+        
+    }
+    
+}); 
+*/
+
+
+// Inside the form submission handler, after validating inputs
+/*
+if (success) {
+    const formDataArray = []; // Initialize an empty array to store form data
+    const formDataObject = {
+        firstName: firstNameVal,
+        lastName: lastNameVal,
+        email: emailVal,
+        phoneNumber: phoneNumberVal,
+        position: positionVal,
+        address: addressVal,
+        experience: experienceVal,
+        cv: cvVal, // Assuming cvVal is the file path obtained from cv input
+        date: dateVal,
+        box: boxVal,
+        select: selectVal
+    };
+    formDataArray.push(formDataObject); // Push the object to the array
+    localStorage.setItem('formDataArray', JSON.stringify(formDataArray)); // Store the array in local storage
+}
+*/
+
+
+/*
+$(document).ready(function() {
+    const storedFormData = localStorage.getItem('formData');
+
+    if (storedFormData) {
+        const formDataArray = JSON.parse(storedFormData);
+
+        // Create DataTable
+        $('#example').DataTable({
+            data: formDataArray,
+            columns: [
+                { data: 'firstName', title: 'First Name' },
+                { data: 'lastName', title: 'Last Name' },
+                { data: 'email', title: 'Email' },
+                { data: 'phoneNumber', title: 'Phone Number' },
+                { data: 'date', title: 'Date' },
+                { data: 'position', title: 'Position' },
+                { data: 'address', title: 'Address' },
+                { data: 'experience', title: 'Experience' },
+                { data: 'select', title: 'Select' },
+                { data: 'cv', title: 'CV' },
+                { data: 'box', title: 'Box' }
+            ]
+        });
+    }
+});
+
+
 form.addEventListener('submit', function(e) {
     if(!validateInputs()) {
         e.preventDefault();
@@ -396,7 +644,7 @@ if(storedFormData) {
     });
     $('#formDataTable').DataTable();
 }
-});
+}); */
 
 /* form.addEventListener('submit', function(e) {
     if (!validateInputs()) {
