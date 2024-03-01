@@ -65,7 +65,7 @@ function storeFormData() {
     localStorage.setItem('formData', JSON.stringify(formDataArray));
 } */
 
-function storeFormData() {
+/* function storeFormData() {
     // Get existing form data array from local storage
     let formDataArray = JSON.parse(localStorage.getItem('formData'));
     
@@ -84,6 +84,136 @@ function storeFormData() {
     localStorage.setItem('formData', JSON.stringify(formDataArray));
 
 }
+*/
+/*
+function storeFormData() {
+
+    let formDataArray = JSON.parse(localStorage.getItem('formData'));
+    let formDataArr = localStorage.setItem('formData',formDataArray);
+    if (!Array.isArray(formDataArray)) {
+        // Initialize formDataArray as an empty array
+        formDataArray = [];
+    }
+    formDataArr = JSON.parse(JSON.stringify(formDataArray));
+    formDataArr.push(formData);
+
+}
+*/
+
+/* function storeFormData() {
+    // Get existing form data array from local storage
+    let formDataArray = JSON.parse(localStorage.getItem('formData'));
+    if (!Array.isArray(formDataArray)) {
+        
+        formDataArray = [[]];
+    } 
+
+    const newIndex = formDataArray.length;
+    formDataArray[newIndex] = formData;
+    
+    localStorage.setItem('formData', JSON.stringify(formDataArray));
+    
+    formDataArray.push(formData);
+} */
+
+/*function storeFormData() {
+    // Get existing form data array from local storage
+    let formDataArray = JSON.parse(localStorage.getItem('formData'));
+
+    // Check if formDataArray is null or undefined
+    if (!formDataArray) {
+        // If formDataArray is null or undefined, initialize it as an empty array
+        formDataArray = [];
+    } else if (formDataArray[0]) {
+        // If the first index is filled, move to the next index position
+        formDataArray = [formDataArray[0]];
+    }
+    
+    // Push new form data to the array
+    formDataArray.push(formData);
+
+    // Update local storage with the updated form data array
+    localStorage.setItem('formData', JSON.stringify(formDataArray));
+}
+*/
+/*
+function storeFormData() {
+    // Get existing form data array from local storage
+    let formDataArray = JSON.parse(localStorage.getItem('formData'));
+
+    // Check if formDataArray is null, undefined, or not an array
+    if (!Array.isArray(formDataArray)) {
+        // Initialize formDataArray as an empty array
+        formDataArray = [formDataArray];
+    } else if (formDataArray.length > 0 && formDataArray[formDataArray.length - 1]) {
+        
+        formDataArray.push({});
+    }
+    
+    
+    formDataArray[formDataArray.length - 1] = formData;
+
+    // Update local storage with the updated form data array
+    localStorage.setItem('formData', JSON.stringify(formDataArray));
+}
+*/
+/* 
+function storeFormData() {
+    // Get existing form data array from local storage
+    let formDataArray = JSON.parse(localStorage.getItem('formData'));
+
+    // Check if formDataArray is null, undefined, or not an array
+    if (!Array.isArray(formDataArray)) {
+        // Initialize formDataArray as an empty array
+        formDataArray = [];
+    }
+    
+    // Determine the index position for the new form data
+    const newIndex = formDataArray.length;
+
+    // Set the new form data at the determined index position
+    formDataArray[newIndex] = formData;
+
+    // Update local storage with the updated form data array
+    localStorage.setItem('formData', JSON.stringify(formDataArray));
+}
+*/
+
+function storeFormData() {
+    
+    let formDataArray = JSON.parse(localStorage.getItem('formData'));
+    
+    if (!Array.isArray(formDataArray)) {
+        
+        formDataArray = [formData];
+    } 
+    formDataArray.push(formData);
+    localStorage.setItem('formData', JSON.stringify(formDataArray));
+    
+}
+/*
+// Function to initialize the form data array if it's null or undefined
+function initializeFormDataArray() {
+    let formDataArray = JSON.parse(localStorage.getItem('formData'));
+    if (!formDataArray) {
+        formDataArray = [];
+    }
+    return formDataArray;
+}
+
+// Function to store form data in local storage
+function storeFormData() {
+    // Get existing form data array from local storage or initialize it
+    let formDataArray = initializeFormDataArray();
+    
+    // Push new form data to the array
+    // formDataArray.push(formData);
+    formDataArray = [...formDataArray, formData]; // Ensure formDataArray is an array
+
+    // Update local storage with the updated form data array
+    localStorage.setItem('formData', JSON.stringify(formDataArray));
+}
+*/
 
 
 function displayFormData() {
