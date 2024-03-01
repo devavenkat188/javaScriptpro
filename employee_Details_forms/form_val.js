@@ -1,9 +1,7 @@
-// Define formData variable outside of the event listener
+
 let formData;
 
 const form = document.getElementById("form");
-
-// Get references to form inputs
 const firstName = document.getElementById("firstName");
 const lastName = document.getElementById("lastName");
 const email = document.getElementById("email");
@@ -15,14 +13,17 @@ const cv = document.getElementById("cv");
 const box = document.getElementById("box");
 const select = document.getElementById("dept");
 
-// Add event listener to the form
 form.addEventListener('submit', function(e) {
-    // Prevent form submission if inputs are not valid
-    e.preventDefault(); // Always prevent default behavior first
+    
+    e.preventDefault(); 
 
     if (!validateInputs()) {
-        return; // Exit function if inputs are not valid
+        return; 
     }
+
+    $(document).ready(function(){
+        $('#formDataTable').DataTable();
+    })
 
     // Populate formData object when form is submitted
     formData = {
@@ -185,49 +186,20 @@ function storeFormData() {
     
     if (!Array.isArray(formDataArray)) {
         
-        formDataArray = [formData];
-    } 
+        formDataArray = [];
+    }   
     formDataArray.push(formData);
     localStorage.setItem('formData', JSON.stringify(formDataArray));
     
 }
-/*
-// Function to initialize the form data array if it's null or undefined
-function initializeFormDataArray() {
-    let formDataArray = JSON.parse(localStorage.getItem('formData'));
-    if (!formDataArray) {
-        formDataArray = [];
-    }
-    return formDataArray;
-}
-
-// Function to store form data in local storage
-function storeFormData() {
-    // Get existing form data array from local storage or initialize it
-    let formDataArray = initializeFormDataArray();
-    
-    // Push new form data to the array
-    // formDataArray.push(formData);
-    formDataArray = [...formDataArray, formData]; // Ensure formDataArray is an array
-
-    // Update local storage with the updated form data array
-    localStorage.setItem('formData', JSON.stringify(formDataArray));
-}
-*/
-
 
 function displayFormData() {
-    // Get form data array from local storage
+
     let formDataArray = JSON.parse(localStorage.getItem('formData')) || [];
 
     const tableBody = document.getElementById("formDataTableBody");
-
-    // Clear existing table rows
     tableBody.innerHTML = '';
-
-    // Check if formDataArray is an array
     if (Array.isArray(formDataArray)) {
-        // Loop through form data array and append rows to the table
         formDataArray.forEach(formData => {
             const row = document.createElement('tr');
             row.innerHTML = `
@@ -246,8 +218,7 @@ function displayFormData() {
         });
     } else {
         console.error("Form data retrieved from local storage is not in the expected format.");
-        // Handle the case when the retrieved data is not in the expected format
-        // For example, you can reset the local storage key 'formData'
+        
         localStorage.removeItem('formData');
     }
 }
@@ -260,10 +231,7 @@ function displayFormData() {
 inputform.value = "";
 */
 
-// Function to validate form inputs
 function validateInputs() {
-    // Validation logic goes here
-    // ...
     const firstNameVal = firstName.value.trim();
     const lastNameVal = lastName.value.trim();
     const emailVal = email.value.trim();
@@ -297,12 +265,10 @@ function validateInputs() {
                 select: selectVal
             }; 
 
-        
-            // Convert the formData object to a JSON string
-            const formDataJSON = JSON.stringify(formData);
+            // const formDataJSON = JSON.stringify(formData);
     
-            // Store the JSON string in local storage
-            localStorage.setItem('formData', formDataJSON);
+    
+            // localStorage.setItem('formData', formDataJSON);
         } 
     
 
@@ -511,6 +477,7 @@ const validateDate = (date) => {
 const validateDept = (select) => {
     return select.options[select.selectedIndex].value !== "";
 };
+
 
 
 /*
