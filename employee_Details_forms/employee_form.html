@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+</head>
+<body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <div class="container">
+        <h1>Employee Details Form</h1>
+        <form action="" id="form" class="row g-2 needs-validation" novalidate>
+          <div class="col-md-6">
+            <label for="firstName" class="form-label">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              placeholder="Enter your first name"
+              required
+            />
+            <div class="valid-feedback">Looks Good</div>
+          </div>
+          <div class="col-md-6">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" />
+            <div class="error"></div>
+          </div>
+          <div class="col-12">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="input" placeholder="name@example.com" />
+            <div id="input" class="form-text">We'll never share your email with anyone else.</div>
+            <div class="error"></div>
+          </div>
+            <div class="col-md-6">
+            <label for="phoneNumber" class="form-label">Phone Number</label>
+            <input
+              type="number"
+              id="phoneNumber"
+              class="form-control"
+              placeholder="Enter your phone number"
+            />
+            <div class="error"></div>
+          </div>
+          <div class="col-md-6">
+            <label for="date" class="form-label">Date of Birth</label>
+            <input type="date" id="date" class="form-control" />
+            <div class="error"></div>
+          </div>
+          <div class="col-12">
+            <label for="address" class="form-label">Address</label>
+            <textarea
+              class="form-control"
+              id="address"
+              row="3"
+              placeholder="Enter your full address"
+            > </textarea>
+            <div class="error"></div>
+          </div>
+          <div class="col-md-6">
+            <label for="position" class="form-label">Position</label>
+            <input type="text" class="form-control" id="position" placeholder="Enter your position" />
+            <div class="error"></div>
+          </div>
+          <div class="col-md-6">
+            <label for="experience" class="form-label">Years of Experience</label>
+            <input
+              type="number"
+              class="form-control"
+              id="experience"
+              placeholder="Enter number of years"
+            />
+            <div class="error"></div>
+          </div>
+          <!--
+          <div class="input-group">
+            <label for="dept">Department</label>
+            <select id="dept">
+              <option name="Department" value=""></option>
+              <option name="Department" value="Human Resources">
+                Human Resources
+              </option>
+              <option name="Department" value="IT">IT</option>
+              <option name="Department" value="Sales">Sales</option>
+              <option name="Department" value="Marketing">Marketing</option>
+              <option name="Department" value="Finance">Finance</option>
+            </select>
+            <div class="error"></div>
+          </div> -->
+        <div class="col-12">
+        <label for="dept" class="form-label">Department</label>
+        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+        <datalist id="datalistOptions">
+        <option value="Human Resouces">
+        <option value="IT">
+        <option value="Sales">
+        <option value="Marketing">
+        <option value="Finance">
+        </datalist>
+        <div class="error"></div>
+        </div>
+        <!--
+          <div class="input-group">
+            <label for="cv">Upload CV</label>
+            <div class="part">Please upload your CV in pdf fromat.</div>
+            <input type="file" id="cv" placeholder="choose file or drop here" />
+            <div class="error"></div>
+          </div>
+        -->
+          <div class="col-12">
+            <label for="formFileSm" class="form-label">Upload CV</label>
+            <input class="form-control form-control-sm" id="formFileSm" type="file">
+            <div id="input" class="form-text">Upload the proper file.</div>
+            <div class="error"></div>
+          </div>
+          
+          <div class="col-12">
+            <input id="box" type="checkbox" />
+            <label
+              >I confirm that the above information is accurate and true to the
+              best of my knowledge.</label
+            >
+            <div class="error"></div>
+          </div>
+          <div class="col-12">
+            <button id="button" class="btn btn-primary" type="submit" value="Submit">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="display">
+        <table id="formDataTable" class="display table table-bordered border-primary" style="width: 100%">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Position</th>
+              <th>Address</th>
+              <th>Experience</th>
+              <th>File</th>
+              <th>Check Box</th>
+              <th>Department</th>
+            </tr>
+          </thead>
+          <tbody id="formDataTableBody"></tbody>
+        </table>
+      </div>
+    </body>
+</body>
+</html>
