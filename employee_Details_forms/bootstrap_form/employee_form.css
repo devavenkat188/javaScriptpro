@@ -61,7 +61,11 @@ h1 {
     font-size: 15px;
     margin-top: 5px;
 }
-
+.form-text .error input {
+    color: rgb(242,18,18);
+    font-size: 15px;
+    margin-top: 5px;
+}
 .col-md-6 .success input {
     border-color: #0cc477;
 }
