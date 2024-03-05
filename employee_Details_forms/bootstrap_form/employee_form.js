@@ -63,6 +63,10 @@ function storeFormData() {
     
 }
 
+window.addEventListener('load', function() {
+    displayFormData();
+});
+
 function displayFormData() {
 
     let formDataArray = JSON.parse(localStorage.getItem('formData')) || [];
