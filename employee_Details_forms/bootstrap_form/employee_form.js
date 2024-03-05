@@ -9,10 +9,10 @@ const phoneNumber = document.getElementById("phoneNumber");
 const position = document.getElementById("position");
 const address = document.getElementById("address");
 const experience = document.getElementById("experience");
-const cv = document.getElementById("formFileSm"); // Updated ID for CV input
+const cv = document.getElementById("formFileSm"); 
 const box = document.getElementById("box");
 const date = document.getElementById("date");
-const exampleDataList = document.getElementById("exampleDataList"); // Updated ID for department datalist
+const exampleDataList = document.getElementById("exampleDataList"); 
 
 form.addEventListener('submit', function(e) {
     
@@ -133,7 +133,6 @@ function validateInputs() {
         // localStorage.setItem('formData', formDataJSON);
     } 
 
-    // Add checks to ensure elements are not null
      if (!firstName || !lastName || !email || !phoneNumber || !position || !address || !experience || !cv || !date || !box || !exampleDataList) {
         console.error('Invalid elements detected.');
         return false;
