@@ -4,7 +4,7 @@ function greetConsole(name) {
 function greetHeading(name) {
     console.log('Welcome '+name);
 }
-function greet(callback) {
+function greet(callback) { // callback function --> instead of callback use any parameters.
     callback("Deva");
 }
 greet(greetConsole); // while calling the function we pass the function name --> (greetConsole) as a argument.
