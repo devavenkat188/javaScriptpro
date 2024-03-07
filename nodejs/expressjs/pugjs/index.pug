@@ -1,6 +1,12 @@
 html
     head
-        title Learn Express Js 
+        title Learn Express Js
+        style 
+            include index.css
     body 
         h1.demo1 Welcome to Pug Learning 
         p#demo2 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non, enim!
+        a(href="https://www.flipkart.com/") Flipkart 
+        ul 
+            each val in ['MangoDB','Express','React','Node']
+            li = value
