@@ -7,5 +7,5 @@ app.get('/',(request,response)=>{
     response.render('index');
 });
 app.listen(port,()=> {
-    console.log(`Pug Server is running at http://localohost${port}`);
+    console.log(`Pug Server is running at http://localhost:${port}`);
 });
