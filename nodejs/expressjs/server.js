@@ -8,6 +8,18 @@ app.get('/people',function(request,response){ // to activate different request b
     response.send('Welcome for Express Js learning');
 });
 // four methods - get, post, put & delete.
+app.get('/people/:id',function(request,response){ // to set dynamic URL based on user input.
+    const id = request.params.id; // to get data from client to server.
+    if(id == 1){
+        response.send('Deva'+id);
+    }else if(id == 2) {
+        response.send('Arun'+id);
+    }else if(id == 3){
+        response.send('Sanjay'+id);
+    }else {
+        response.send('Happy Learning'+id);
+    }
+});
 app.listen(9000, function(request,response){  // to start the server.
         console.log('Running...') // to check wether the server is running / not.
 }); 
