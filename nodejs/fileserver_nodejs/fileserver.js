@@ -1,12 +1,12 @@
-const http = require('node:http');
+const http = require('node:http'); // to access the http module.
 const url = require('url');
-const fs = require('fs');
-const port = 8080;
+const fileserver = require('fs');
+const port = 8080; 
 const hostname ='127.0.0.1'
-http.createServer(function(request,response){
+http.createServer(function(request,response){ // to create a server.
     const q = url.parse(request.url,true);
     const fileName = "."+q.pathname;
-    fs.readFile(fileName, function(error,data){
+    fileserver.readFile(fileName, function(error,data){ // to read the file
         if(error) {
             response.writeHead(404,{'Content-Type':'text/html'});
             return response.end('404 Page Not Found'); 
