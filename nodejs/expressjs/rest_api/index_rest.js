@@ -119,7 +119,18 @@ app.post("/particularUser",function(request,response){
         response.end(JSON.stringify(user));
     });
 });
-
+app.post("/deleteUser",function(request,response){
+    fs.readFile("index_rest.json","utf-8",function(error,data){
+        data = JSON.parse(data);
+        delete data[request.body.userid];
+        console.log(data);
+        var updateuser = JSON.stringify(data);
+        fs.writeFile("index_rest.json",updateuser,function(err){
+            response.end(JSON.stringify(data));
+        });
+        // response.end(JSON.stringify(data));
+    });
+});
 app.listen(3000,function(){
     console.log(`The server is running on port http://localhost:3000`);
 });
