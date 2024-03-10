@@ -1,1 +1,12 @@
-{"0678":{"name":"Deva","dob":"1999-05-01","profession":"Software Engineer"},"0978":{"name":"Deva","dob":"1999-05-01","profession":"IT"}}
+{
+    "0678": {
+        "name": "Deva",
+        "dob": "1999-05-01",
+        "profession": "Software Engineer"
+    },
+    "0978": {
+        "name": "Deva",
+        "dob": "1999-05-01",
+        "profession": "IT"
+    }
+}
