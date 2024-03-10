@@ -23,12 +23,22 @@
       </div>
       <div>
         <label>Profession</label>
-        <input type="text" id="profession" name="profession" size="20">
+        <input type="text" id="profession" name="profession" size="20" />
       </div>
       <div>
-        <button type="submit" name="Submit">
-            Add User
-        </button>
+        <button type="submit" name="Submit">Add User</button>
+      </div>
+    </form>
+
+    <!-- To Select Particular Name-->
+    <h1>Get Specific User Details</h1>
+    <form action="/particularUser" method="post">
+      <div>
+        <label>User ID</label>
+        <input type="text" id="userid" name="userid" size="20" />
+      </div>
+      <div>
+        <button type="submit" name="Submit">Get User Info</button>
       </div>
     </form>
   </body>

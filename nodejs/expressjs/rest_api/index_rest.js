@@ -111,6 +111,15 @@ app.post("/addUser", function(request,response){
         }
     });
 });
+app.post("/particularUser",function(request,response){
+    fs.readFile("index_rest.json","utf-8",function(error,data){
+        var users = JSON.parse(data);
+        var user = users[request.body.userid];
+        console.log(user);
+        response.end(JSON.stringify(user));
+    });
+});
+
 app.listen(3000,function(){
     console.log(`The server is running on port http://localhost:3000`);
 });
