@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const UserService = require('./sequelize/models/sequelize/model');
+const UserService = require('C:\\Users\\Admin\\Desktop\\HTML TAGS\\javaScriptpro\\nodejs\\expressjs\\server_model.js');
 
 module.exports = function(config) {
     const userService = new UserService(config.postgress.client);
