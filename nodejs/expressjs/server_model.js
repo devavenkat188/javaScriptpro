@@ -1,19 +1,20 @@
 const express = require('express');
-const router = express.Router();
+// const router = express.Router();
+const app = express();
+const port = 3000;
 
-const UserService = require('C:\\Users\\Admin\\Desktop\\HTML TAGS\\javaScriptpro\\nodejs\\expressjs\\server_model.js');
+const User = require('./sequelize/models/se/model');
 
-module.exports = function(config) {
-    const userService = new UserService(config.postgress.client);
-
-router.get('/',async(requset,response) => {
+app.get('/',async(requset,response,next) => {
     try{
-        const user = await userService.getUser();
+        const user = await User.findAll();
         response.send(user);
     }
     catch(error){
         return next(error);
     }
 });
-    return router;
-}
+
+app.listen(port,()=>{
+    console.log(`The app listen on port http://localhost:${port}`);
+})
