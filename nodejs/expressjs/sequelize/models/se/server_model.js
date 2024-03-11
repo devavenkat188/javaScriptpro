@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const UserService = require('../../models/se/model');
+const UserService = require('./model');
 
 module.exports = function(config) {
     const UserService = new UserService(config.postgress.client);
