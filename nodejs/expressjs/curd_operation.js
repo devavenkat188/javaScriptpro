@@ -1,7 +1,17 @@
 const express = require('express');
+const Models = require('../expressjs/curd_operation.js');
 const router = express.Router();
 const app = express();
 const port = 4000;
+
+/*
+class UserService {
+    constructor(sequelize){
+        Models(sequelize);
+        this.client = sequelize;
+        this.models = sequelize;
+    }
+*/
 
 const UserService = require('../expressjs/curd_operation.js'); // Invoke the exported function to get the router
 const userServiceInstance = new UserService();
@@ -70,6 +80,7 @@ router.post('/delete', async (request, response, next) => {
         next(error);
     }
 });
+
 
 // Export the router directly
 module.exports = router;
