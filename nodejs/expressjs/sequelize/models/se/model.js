@@ -30,7 +30,7 @@ const {sequelize} = require('../../../config/db_connect');
         // timestamps: false, // it will remove the timestamps.
         timestamps: true,
         createdAt: false,
-        updateAt: 'updateTimeStamp', // by default we can re-name it.
+        updatedAt: 'updateTimeStamp', // by default we can re-name it.
     }); 
 
     // sequelize.sync({force: true}); // {force: true} --> which will delete the existing one & re-create new database.
@@ -38,4 +38,4 @@ const {sequelize} = require('../../../config/db_connect');
     // sequelize.sync({force: true, match: /_test$/ }); // {match: /_test$/} --> if the datatbase name matches it will
    // be deleted.
     console.log('Table Created');
-module.exports=(user);
+module.exports = user;
