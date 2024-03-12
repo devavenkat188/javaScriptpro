@@ -1,4 +1,4 @@
-const Models = require('../se/curd_operation');
+const Models = require('../curd_operation');
 
 class UserService {
     constructor(sequelize){

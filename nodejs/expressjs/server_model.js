@@ -3,7 +3,10 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-const User = require('./sequelize/models/se/model');
+//const User = require('./sequelize/models/se/model');
+
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 app.get('/',async(requset,response,next) => {
     try{

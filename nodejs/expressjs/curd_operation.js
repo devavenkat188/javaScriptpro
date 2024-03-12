@@ -1,9 +1,11 @@
 const router = express.Router();
+const app = express();
+const port = 4000;
+ 
+const userService = require('../expressjs/');
 
-const userService = require('./user_services');
-
-module.exports = (config) => {
-    const UserService = new userService(config.postgres.client);
+module.exports = () => {
+    const UserService = new userService();
 
 router.post('/create',async (request,response,next)=>{
     try{
@@ -60,7 +62,7 @@ router.post('/update',async(request,response,next)=>{
     }
 });
 
-router.post('/delete',async(requset,response)=>{
+router.post('/delete',async(request,response)=>{
     try {
         const user = await UserService.deleteUser();
         response.send(user);
@@ -70,3 +72,6 @@ router.post('/delete',async(requset,response)=>{
 });
 return router;
 };
+app.listen(port,()=>{
+    console.log(`The app listens on port no http://localhost:${port}`);
+});
