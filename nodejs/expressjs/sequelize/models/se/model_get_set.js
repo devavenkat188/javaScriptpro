@@ -1,5 +1,6 @@
 const { Sequelize, Model, DataTypes } = require("sequelize");
 const { sequelize } = require('../../../config/db_connect');
+const bcrypt = require('bcrypt');
 
 const User = sequelize.define("Product_Details", {
     productName: {
@@ -53,9 +54,9 @@ const User = sequelize.define("Product_Details", {
         const users = await User.findAll();
         console.log(users);
     }
-    catch {
+    catch (error) {
         console.log('Error:', error);
     }
-});
+})();
 
 module.exports = User;
