@@ -1,11 +1,16 @@
-const { Sequelize, Model, DataTypes } = require("sequelize");
+const { Sequelize, Model, Op, DataTypes } = require("sequelize");
 const { sequelize } = require('../../../config/db_connect');
-const bcrypt = require('bcrypt');
+const crypto = require('crypto');
+
+function hash(value) {
+    return crypto.createHash('sha1').update(value.toString()).digest('hex');
+}
 
 const User = sequelize.define("Product_Details", {
     productName: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
         // Getters
         get() {
             const rawValue = this.getDataValue('productName');
@@ -13,11 +18,11 @@ const User = sequelize.define("Product_Details", {
         }
     },
     productId: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.TEXT,
         allowNull: false,
         // Setters
         set(value) {
-            this.setDataValue('productId', hash(value));
+            this.setDataValue('productId', (value, 1));
         }
     },
     productCategory: {
@@ -31,7 +36,7 @@ const User = sequelize.define("Product_Details", {
     },
     quantity: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        // allowNull: false,
     },
 
 }, {
@@ -44,7 +49,7 @@ const User = sequelize.define("Product_Details", {
         await sequelize.sync();
         console.log('Table Created Successfully');
 
-        const userInstance = await User.create({ productName: 'Ice-Cream', productId: 1 });
+        const userInstance = await User.create({ productName: 'Ice-Cream', productId: 1, quantity: 10 });
         console.log(userInstance.productName);
         console.log(userInstance.getDataValue('productName'));
         console.log(userInstance.productId);
