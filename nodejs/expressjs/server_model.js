@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-const User = require('./sequelize/models/se/model_query');
+const User = require('./sequelize/models/se/model_get_set');
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
