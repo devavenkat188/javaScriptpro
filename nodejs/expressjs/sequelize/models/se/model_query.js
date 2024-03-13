@@ -155,7 +155,47 @@ const User = sequelize.define("user", {
     console.log(user.userName);
     console.log(user.isAdmin);
 });
-
+// findOrCreate --> will create an entries in a table unless it can find one fullfilling the query.
+(async () => {
+    const [user, created] = await User.findOrCreate({
+        where: { userName: 'deva88' },
+        defaults: {
+            department: 'Intern',
+        }
+    });
+    console.log(user.userName);
+    console.log(user.department);
+    console.log(created);
+    if (created) {
+        console.log(user.department);
+    }
+});
+// findAndCountAll
+(async () => {
+    const { count, rows } = await User.findAndCountAll({
+        where: {
+            department: {
+                [Op.like]: 'Intern%'
+            }
+        },
+        offset: 10,
+        limit: 2,
+    });
+    console.log(count);
+    console.log(rows);
+})
+// Getters
+/*
+const user = sequelize.define('User', {
+    userName: {
+        type: DataTypes.STRING,
+        get() {
+            const rawValue = this.getDataValue('userName');
+            return rawValue ? rawValue.toUpperCase() : null;
+        }
+    }
+});
+*/
 // simple select query
 
 module.exports = User;
