@@ -55,7 +55,6 @@ const User = sequelize.define("Product_Details", {
         console.log(userInstance.productId);
         console.log(userInstance.getDataValue('productId'));
         console.log(userInstance.productCategory);
-
         const users = await User.findAll();
         console.log(users);
     }
@@ -63,5 +62,8 @@ const User = sequelize.define("Product_Details", {
         console.log('Error:', error);
     }
 })();
+(async () => {
+    const [User, metadata] = await sequelize.query("UPDATE User SET product_id = 23 WHERE product_id = 10");
+})
 
 module.exports = User;
