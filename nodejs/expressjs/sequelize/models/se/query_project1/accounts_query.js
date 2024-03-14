@@ -8,8 +8,8 @@ const Account = sequelize.define("account", {
         allowNull: false,
         references: {
             model: 'Asset',
-            key:'Asset_id',
-        } 
+            key: 'Asset_id',
+        }
     },
     Owner_Name: {
         type: DataTypes.TEXT,
@@ -34,9 +34,22 @@ const Account = sequelize.define("account", {
     timestamps: false,
 
 });
+
+// (async () => {
+let datas =[{ Account_id: 2, Owner_Name: "Raja", Address: "Salem", Mobile_number1: 6634598607, Mobile_number2: 9865479086, Vehicle_Name: "SRK Transport", Total_Vehicle: 26},
+{ Account_id: 1, Owner_Name: "Kathir", Address: "Sanakri", Mobile_number1: 8825460398, Mobile_number2: 8826475039, Vehicle_Name: "SPP Transport", Total_Vehicle: 10 },
+{ Account_id: 3, Owner_Name: "Shankar", Address: "Erode", Mobile_number1: 8876570987, Mobile_number2: 6677854702, Vehicle_Name: "SUN Transport", Total_Vehicle: 100}]
+
+for (const data of datas) {
+    if (data) {
+        Account.create(data)
+    }
+}
+// });
+
 Account.associate = function (models) {
     Account.hasOne(models.Asset);
-    
+
 }
 Account.hasOne(Asset, {
     foreignKey: 'Account_id',
