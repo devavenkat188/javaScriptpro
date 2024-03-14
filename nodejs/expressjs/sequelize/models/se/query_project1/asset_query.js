@@ -1,15 +1,17 @@
-const {Sequelize, Model, DataTypes} = require('sequelize');
-const {sequelize} = require('../../../../config/db_connect');
+
+const { Sequelize, Model, DataTypes } = require('sequelize');
+const { sequelize } = require('../../../../config/db_connect');
 const Trip = require('./trip_query');
 
 const Asset = sequelize.define("asset", {
     Asset_id: {
         type: DataTypes.INTEGER,
+        primaryKey: true,
         allowNull: false,
         references: {
             model: 'trip',
             key: 'Trip_id',
-        },
+        }
     },
     Owner_Name: {
         type: DataTypes.TEXT,
@@ -20,22 +22,28 @@ const Asset = sequelize.define("asset", {
     Vehicle_Name: {
         type: DataTypes.TEXT,
     },
-    
-    },{
-        tableName: "Asset",
-        timestamps: false,
+
+}, {
+    tableName: "Asset",
+    timestamps: false,
 
 });
 
-Asset.associate = function(models){
-    Asset.belongsTo(models.Account);
-    Asset.hasOne(models.Trip);
+Asset.associate = function (models) {
+    Asset.belongsTo(Asset, {
+        foreignKey: 'Account_id',
+    });
+    // Asset.hasOne(Trip, {
+    // foreignKey: 'Asset_id',
+    // });
 }
+
 Asset.hasOne(Trip, {
     foreignKey: 'Asset_id',
 });
 
-sequelize.sync({force: true}).then(()=> {
+
+sequelize.sync({ force: true }).then(() => {
     console.log('Table Created');
 }).catch(error => {
     console.log('Error Sync tables:', error);

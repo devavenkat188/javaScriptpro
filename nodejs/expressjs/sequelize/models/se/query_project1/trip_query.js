@@ -1,8 +1,8 @@
-const {Sequelize, Model, DataTypes} = require('sequelize');
-const {sequelize} = require('../../../../config/db_connect');
-// const Asset = require('./asset_query');
+const { Sequelize, Model, DataTypes } = require('sequelize');
+const { sequelize } = require('../../../../config/db_connect');
+const Asset = require('./asset_query');
 
-const Trip = sequelize.define("trip", {
+const Trip = sequelize.define("Trip", {
     Trip_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -26,15 +26,22 @@ const Trip = sequelize.define("trip", {
     Unloadout_time: {
         type: DataTypes.TIME,
     }
-    },{
-        tableName: "Trip",
-        timestamps: false,
+}, {
+    tableName: "Trip",
+    timestamps: false,
 
 });
 
-Trip.associate = function(models){
-    Trip.belongsTo(models.Asset);
+Trip.associate = function (models) {
+    Trip.belongsTo(Trip, {
+        foreignKey: 'Asset_id',
+    });
 }
-sequelize.sync({force: true});
-console.log('Table Created');
+
+sequelize.sync({ force: true }).then(() => {
+    console.log('Table Created');
+}).catch(error => {
+    console.log('Error in Sync table:', error);
+});
+
 module.exports = Trip;

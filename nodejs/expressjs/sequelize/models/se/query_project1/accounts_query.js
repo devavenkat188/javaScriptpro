@@ -4,11 +4,12 @@ const Asset = require('./asset_query');
 const Account = sequelize.define("account", {
     Account_id: {
         type: DataTypes.INTEGER,
+        primaryKey: true,
         allowNull: false,
         references: {
-            model: 'asset',
+            model: 'Asset',
             key:'Asset_id',
-        }
+        } 
     },
     Owner_Name: {
         type: DataTypes.TEXT,
@@ -40,14 +41,7 @@ Account.associate = function (models) {
 Account.hasOne(Asset, {
     foreignKey: 'Account_id',
 });
-/*
-Account.hasOne(Asset, {
-    foreignKey: {
-        name: 'Account_id',
-    }
-});
-Asset.belongsTo(Account);
-*/
+
 
 sequelize.sync({ force: true });
 console.log('Table Created');
