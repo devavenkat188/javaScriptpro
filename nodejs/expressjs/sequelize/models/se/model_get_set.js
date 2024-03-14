@@ -1,6 +1,7 @@
 const { Sequelize, Model, Op, DataTypes } = require("sequelize");
 const { sequelize } = require('../../../config/db_connect');
 const crypto = require('crypto');
+const { QueryTypes } = require('sequelize');
 
 function hash(value) {
     return crypto.createHash('sha1').update(value.toString()).digest('hex');
@@ -63,7 +64,16 @@ const User = sequelize.define("Product_Details", {
     }
 })();
 (async () => {
-    const [User, metadata] = await sequelize.query("UPDATE User SET product_id = 23 WHERE product_id = 10");
+    const [request_Data, metadata] = await sequelize.query("UPDATE User SET product_id = 23 WHERE product_id = 10");
+
+    const Users = await sequelize.query("SELECT * FROM `user`", { type: QueryTypes.SELECT });
+    Console.log(Users);
+
+    const Product = await sequelize.query('SELECT * FROM user', {
+        model: Product,
+        mapToModel: true
+    });
+    console.log(Product);
 })
 
 module.exports = User;
