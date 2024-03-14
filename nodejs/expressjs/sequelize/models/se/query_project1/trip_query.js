@@ -1,5 +1,6 @@
 const {Sequelize, Model, DataTypes} = require('sequelize');
 const {sequelize} = require('../../../../config/db_connect');
+// const Asset = require('./asset_query');
 
 const Trip = sequelize.define("trip", {
     Trip_id: {
@@ -36,4 +37,4 @@ Trip.associate = function(models){
 }
 sequelize.sync({force: true});
 console.log('Table Created');
-module.exports = Asset;
+module.exports = Trip;

@@ -5,7 +5,6 @@ const Trip = require('./trip_query');
 const Asset = sequelize.define("asset", {
     Asset_id: {
         type: DataTypes.INTEGER,
-        primaryKey: true,
         allowNull: false,
         references: {
             model: 'trip',
@@ -33,8 +32,13 @@ Asset.associate = function(models){
     Asset.hasOne(models.Trip);
 }
 Asset.hasOne(Trip, {
-    foriegnKey: 'Asset_id',
+    foreignKey: 'Asset_id',
 });
-sequelize.sync({force: true});
-console.log('Table Created');
+
+sequelize.sync({force: true}).then(()=> {
+    console.log('Table Created');
+}).catch(error => {
+    console.log('Error Sync tables:', error);
+})
+// console.log('Table Created');
 module.exports = Asset;
