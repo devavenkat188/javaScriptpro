@@ -1,6 +1,7 @@
 
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const { sequelize } = require('../../../../config/db_connect');
+const Account = require('./accounts_query');
 const Trip = require('./trip_query');
 
 const Asset = sequelize.define("asset", {
@@ -31,7 +32,7 @@ const Asset = sequelize.define("asset", {
 
 let values = [{ Asset_id: 1, Owner_Name: "Kathir", Status: true, Vehicle_Name: "SPP Transport", Account_id: 1},
 { Asset_id: 2, Owner_Name: "Shankar", Status: true, Vehicle_Name: "SUN Transport", Account_id: 3 },
-{Asset_id: 3, Owner_Name: "Raja", Status: true, Vehicle_Name: "SRK Transport", Account_id: 2}];
+{Asset_id: 3, Owner_Name: "Raja", Status: false, Vehicle_Name: "SRK Transport", Account_id: 2}];
 
 for (const value of values) {
     if(value) {
