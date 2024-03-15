@@ -1,7 +1,7 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const { sequelize } = require();
 
-const Employee = sequelize.define("employee", {
+const Employee_Master = sequelize.define("employee_master", {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -30,6 +30,19 @@ const Employee = sequelize.define("employee", {
         type: DataTypes.TEXT,
     },
 },{
-    tableName: "Employee",
+    tableName: "Employee_Master",
     timestamps: false,
 });
+
+// Data initialization:
+
+Employee.associate = function(models) {
+    Employee.hasOne(models.Asset_Master);
+}
+Employee.hasOne(Asset_Master, {
+    foreignKey: 'id',
+});
+
+sequelize.sync({ force: true });
+console.log('Employee_Master Table Created');
+module.exports = Employee_Master;
