@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = 4000;
 
-const User = require();
+const User = require('./sequelize/models/se/Asset_Management_Project/employee_master');
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
