@@ -40,7 +40,8 @@ let values = [{ Trip_startl: "Chennai", Trip_endl: "Pune", Loadin_time: '14:34',
 
 for(const value of values) {
     if(value) {
-        Trip.create(value)
+        
+        Trip.create(value, {exclude: ['Trip_id'] });
     }
 }
 Trip.associate = function (models) {
