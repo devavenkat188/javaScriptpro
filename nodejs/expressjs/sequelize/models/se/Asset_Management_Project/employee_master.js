@@ -1,5 +1,114 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const { sequelize } = require('../../../../config/asset_management_db');
+
+// const Asset_Master = require('./asset_master');
+
+const Employee_Master = sequelize.define("Employee_Master", {
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        autoIncrement: true,
+        unique: true,
+    },
+    Employee_Name: {
+        type: DataTypes.TEXT,
+    },
+    Designation: {
+        type: DataTypes.TEXT,
+    },
+    DOB: {
+        type: DataTypes.DATE
+    },
+    Mobile_Number: {
+        type: DataTypes.BIGINT,
+    },
+    Salary: {
+        type: DataTypes.INTEGER,
+    },
+    Experience: {
+        type: DataTypes.INTEGER,
+    },
+    Status: {
+        type: DataTypes.TEXT,
+    },
+},{
+    tableName: "Employee_Master",
+    timestamps: false,
+});
+
+sequelize.sync({ force: true })
+    .then(() => {
+        // Logging statements after synchronization
+        console.log('Employee_Master Table Created');
+        console.log(typeof Employee_Master); // Check the type of Employee_Master
+        // console.log(Employee_Master instanceof Sequelize.Model);
+        console.log(Employee_Master === sequelize.models.Employee_Master); // Check if Employee_Master is an instance of Sequelize.Model
+    })
+    .catch(error => {
+        console.error('Error synchronizing Employee_Master:', error);
+    });
+
+module.exports = Employee_Master;
+
+
+/*sequelize.sync({ force: true });
+console.log('Employee_Master Table Created');
+console.log(typeof Employee_Master); // Check the type of Employee_Master
+console.log(Employee_Master instanceof Sequelize.Model); // Check if Employee_Master is an instance of Sequelize.Model
+*/
+
+
+/*
+const { Sequelize, Model, DataTypes } = require('sequelize');
+const { sequelize } = require('../../../../config/asset_management_db');
+const Asset_Master = require('./asset_master'); // Import Asset_Master model
+
+const Employee_Master = sequelize.define("employee_master", {
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        autoIncrement: true,
+        unique: true,
+    },
+    Employee_Name: {
+        type: DataTypes.TEXT,
+    },
+    Designation: {
+        type: DataTypes.TEXT,
+    },
+    DOB: {
+        type: DataTypes.DATE
+    },
+    Mobile_Number: {
+        type: DataTypes.BIGINT,
+    },
+    Salary: {
+        type: DataTypes.INTEGER,
+    },
+    Experience: {
+        type: DataTypes.INTEGER,
+    },
+    Status: {
+        type: DataTypes.TEXT,
+    },
+},{
+    tableName: "Employee_Master",
+    timestamps: false,
+});
+
+// Define associations
+Employee_Master.hasMany(Asset_Master); // Define the association with Asset_Master
+
+sequelize.sync({ force: true });
+console.log('Employee_Master Table Created');
+module.exports = Employee_Master;
+*/
+
+/*
+const { Sequelize, Model, DataTypes } = require('sequelize');
+const { sequelize } = require('../../../../config/asset_management_db');
 const Asset_Master = require('./asset_master');
 const Employee_Master = sequelize.define("employee_master", {
     id: {
@@ -7,11 +116,12 @@ const Employee_Master = sequelize.define("employee_master", {
         primaryKey: true,
         allowNull: false,
         autoIncrement: true,
-         references: {
+        unique: true,
+        /* references: {
             model: 'Asset_Master',
-            key: 'id',
-        }, 
-    },
+            key: 'Asset_id',
+        }, */
+   /* },
     Employee_Name: {
         type: DataTypes.TEXT,
     },
@@ -40,13 +150,16 @@ const Employee_Master = sequelize.define("employee_master", {
 
 // Data initialization:
 
-Employee_Master.associate = function(models) {
-    Employee_Master.hasOne(models.Asset_Master);
-} 
-Employee_Master.hasOne(Asset_Master, {
+// Employee_Master.associate = function(models) {
+    // Employee_Master.hasMany(Asset_Master);
+// } 
+/*Employee_Master.hasOne(Asset_Master, {
     foreignKey: 'id',
-}); 
-
+}); */
+/*
+Employee_Master.hasMany(Asset_Master);
 sequelize.sync({ force: true });
 console.log('Employee_Master Table Created');
 module.exports = Employee_Master;
+
+*/
