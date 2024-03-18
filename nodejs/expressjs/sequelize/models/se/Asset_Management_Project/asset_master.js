@@ -39,7 +39,7 @@ const Asset_Master = sequelize.define("Asset_Master", {
 
 // Association setup
 
-Asset_Master.belongsTo(Employee_Master);
+Asset_Master.belongsTo(Employee_Master, {as: 'Employee_Master', foreignKey: 'id'});
 Asset_Master.hasMany(Asset_Category_Master);
 
 //sequelize.sync({ force: true });
