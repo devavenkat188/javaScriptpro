@@ -9,7 +9,7 @@ const sequelize = new Sequelize('database_model', 'postgres', 'Deva@1234', {
     dialect: 'postgres',
 });
 
-const db = {};
+const db = {}; 
 
 fs
     .readdirSync(__dirname)
@@ -19,7 +19,7 @@ fs
     .forEach((file) => {
         const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
         db[model.name] = model;
-        console.log(file);
+        console.log(file, 'filename');
     });
 
 Object.keys(db).forEach((modelName) => {
@@ -31,6 +31,20 @@ Object.keys(db).forEach((modelName) => {
 db.sequelize = sequelize;
 console.log("Tables Created", Object.keys(db).join(", "));
 db.Sequelize = Sequelize;
+
+sequelize.sync({ force: true })
+    .then(() => {
+        console.log('Database synchronization completed successfully.');
+        // Check if the tables are created and log their names
+        Object.keys(sequelize.models).forEach(modelName => {
+            console.log(`Table created: ${modelName}`);
+        });
+    })
+    .catch(error => {
+        console.error('Error synchronizing database:', error);
+    });
+
+
 
 module.exports = db;
 

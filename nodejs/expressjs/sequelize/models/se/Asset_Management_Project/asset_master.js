@@ -1,8 +1,8 @@
 
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const { sequelize } = require('../../../../config/asset_management_db');
-const Employee_Master = require('./employee_master');
-const Asset_Category_Master = require('./asset_category_master');
+//const Employee_Master = require('./employee_master');
+//const Asset_Category_Master = require('./asset_category_master');
 
 const Asset_Master = sequelize.define("Asset_Master", {
     id: {
@@ -38,22 +38,14 @@ const Asset_Master = sequelize.define("Asset_Master", {
 
 
 // Association setup
-
-Asset_Master.belongsTo(Employee_Master, {as: 'Employee_Master', foreignKey: 'id'});
+/*Asset_Master.associate = function(models){
+Asset_Master.belongsTo(Employee_Master);
 Asset_Master.hasMany(Asset_Category_Master);
-
+}*/
 //sequelize.sync({ force: true });
 // console.log('Asset_Master Table Created');
+
 module.exports = Asset_Master;
-
-sequelize.sync({ force: true })
-    .then(() => {
-        console.log('Asset_Master Table Created');
-    })
-    .catch(error => {
-        console.error('Error synchronizing Asset_Master:', error);
-    });
-
 /*
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const { sequelize } = require('../../../../config/asset_management_db');

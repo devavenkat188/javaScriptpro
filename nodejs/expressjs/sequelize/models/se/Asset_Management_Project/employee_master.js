@@ -37,18 +37,6 @@ const Employee_Master = sequelize.define("Employee_Master", {
     timestamps: false,
 });
 
-sequelize.sync({ force: true })
-    .then(() => {
-        // Logging statements after synchronization
-        console.log('Employee_Master Table Created');
-        console.log(typeof Employee_Master); // Check the type of Employee_Master
-        // console.log(Employee_Master instanceof Sequelize.Model);
-        console.log(Employee_Master === sequelize.models.Employee_Master); // Check if Employee_Master is an instance of Sequelize.Model
-    })
-    .catch(error => {
-        console.error('Error synchronizing Employee_Master:', error);
-    });
-
 module.exports = Employee_Master;
 
 
